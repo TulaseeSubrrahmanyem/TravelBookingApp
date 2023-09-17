@@ -1,0 +1,54 @@
+.hotelFeature{
+  background-color: aliceblue;
+  border-radius: 15px;
+  margin: 40px;
+  padding: 30px;
+  height: 100vh;
+
+}
+body{
+   font-family: 'Roboto', sans-serif;
+   margin-top: 20px;
+}
+.hotelCard{
+    background-color: rgb(255, 255, 255);
+    margin-top: 30px;
+    padding: 10px;
+    height: 420px;
+    border-radius: 10px;
+    box-shadow: 2px 6px 4px rgba(168, 166, 166, 0.3);
+
+}
+.hotelCardImg{
+    width: 100%;
+    height: 220px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+.cardRating{
+    font-size: 5px;
+    float: left;
+    margin-bottom: 10px;
+}
+.hotelCardName{
+
+    font-size: 16px;
+    color: #007bff;
+    text-align: left;
+    margin-bottom:5px;
+}
+.hotelCardLocation{
+
+    font-size: 12px;
+    float: left;
+    text-align: left;
+}
+.detailButton{
+    border:solid 1px;
+    border-radius: 5px;
+    height: 30px;
+    width: 80px;
+    font-weight: 550;
+    font-size: 14px;
+    padding: 5px;
+}

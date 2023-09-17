@@ -1,0 +1,20 @@
+/* index.css */
+.modalBox {
+    background-color: #f8f9fb;
+    border-radius: 10px;
+    padding: 20px;
+    width: 800px;
+    margin: 0 auto; /* Center the modal horizontally */
+    margin-top: 50px;
+  }
+  
+  .showMap {
+    border: none;
+    background-color: transparent;
+    color: #007bff;
+    margin: 0px;
+    font-weight: 800;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  

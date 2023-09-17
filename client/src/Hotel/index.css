@@ -1,0 +1,13 @@
+.hotelSection{
+    background: url("/public/images/indiaMap.png"); /* Correct path */
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 250px;
+    z-index: 1;
+    margin-top: 300px;
+    margin: 20px auto;
+    padding: 50px;
+}
+.hotelSearchBox{
+    margin-top: 60px;
+}

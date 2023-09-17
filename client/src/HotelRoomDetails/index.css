@@ -1,0 +1,170 @@
+.hotleRoomDetails{
+    padding: 10px;
+    margin:0px;
+    
+    
+}
+.detailsCard{
+    background-color: #ffff;
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 50px;
+}
+.detailsCard h3{
+    font-size: 18px;
+    font-weight: 550;
+        
+}
+.detailsCard p{
+    font-size: 14px;
+    font-weight: 500;
+    margin: 3px;
+    white-space:pre-wrap;
+}
+.imagesRow{
+    display: flex;
+    flex-direction: row;
+}
+.large-images{
+    width: 400px;
+    height: 280px;
+    border-radius: 10px;
+    margin: 5px;
+    transition: transform 0.3s;
+}
+
+.medium-images {
+    width: 300px;
+    height: 140px;
+    border-radius: 10px;
+    margin: 5px;
+    transition: transform 0.3s;
+}
+
+.small-images{
+    width: 200px;
+    height: 120px;
+    border-radius: 10px;
+    margin: 5px;
+    transition: transform 0.3s;
+}
+.large-images:hover,
+.medium-images:hover,
+.small-images:hover {
+    transform: scale(1.3); /* Increase the size of the image on hover */
+    cursor:zoom-in;
+}
+.addressWithGps{
+    background-color:#2f2f30 ;
+}
+.addressWithGps{
+    border-radius: 10px;
+    background-color:#F8F9FA ;
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 16px;
+    font-weight: 500;
+}
+.priceDetails{
+    background-color: #ffff;
+    border-radius: 10px;
+    padding: 10px;
+}
+.roomPricesCard{
+    background-color: #ffff;
+    border-radius: 10px;
+    padding: 35px;
+    margin: 8px;
+    width: 100%;
+}
+.roomTypeName{
+    color:#007bff ;
+    font-size: 18px;
+    font-weight: 550;
+    text-decoration: underline;
+    text-decoration-thickness: auto;
+}
+/* Style the table */
+.roomPriceTable{
+    width: 100%;
+    /* border-collapse: collapse; */
+
+    height: 100%; 
+    table-layout:fixed;
+    word-break: break-word;
+  }
+  .roomPriceTable thead{
+    border: 1px solid #ddd; 
+   
+  }
+  .roomPriceTable th{
+    padding: 0px;
+    margin-left: 35px;
+  }
+ .roomPriceTable td {
+    border: 1px solid #ddd; 
+    padding: 10px;
+    text-align: left;
+    width: 100%;
+  }
+  /* Style table headers */
+  .roomPriceTable thead {
+    background-color: #f8f9fa;
+    text-align: left;
+    }
+  .roomPriceTable thead  tr{
+    padding: 20px;
+    margin: 0px;
+  }
+  .roomPriceTable tbody  td{
+    padding:0px;
+    margin: 0px;
+      
+  }
+  .facilityies{
+    font-size: 16px;
+    display: flex;
+    flex-direction:row;
+    justify-content: flex-start;
+   
+    margin-top: 10px;
+  }
+  .noOfTravellers{
+    display: flex;
+    flex-direction: row;
+    color:#4d4e4e;
+    margin: 5px;
+  }
+ 
+.roomPriceTable td ul {
+    margin: 0;
+    padding: 0;
+   
+  }
+  
+  .roomPriceTable td ul li {
+    list-style: none; /* Remove bullet points from lists */
+    margin-bottom: 5px; 
+  }
+  .bookingButton{
+    width: 100px;
+    height: 40px;
+    border: none;
+    border-radius: 3px;
+    background-color: #007bff;
+    color: #ffff;
+    font-size: 14px;
+    font-weight: 550;
+    margin-right: 5px;
+
+  }  
+  .bookingButton:hover{
+    background-color: #0361c5;
+  }
+  /* .verticalLine{
+    border: none;
+    border-left: 1px solid hsla(200, 10%, 50%,100);
+    width: 1px;      
+    margin: 0px; 
+    padding: 0px;
+  } */

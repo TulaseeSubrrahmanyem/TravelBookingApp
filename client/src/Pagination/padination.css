@@ -1,0 +1,11 @@
+/* pagination.css */
+.pagination {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+  }
+  
+ 
+  

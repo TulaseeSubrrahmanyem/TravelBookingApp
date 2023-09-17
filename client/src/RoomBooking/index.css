@@ -1,0 +1,186 @@
+.topHeading{
+    font-size: 18px;
+    background-color:#007bff ;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    margin: 0px;
+    font-weight: 550;
+} 
+.personalData{
+    background-color: #ffffff;
+    border-radius: 10px;
+    margin: 20px;
+    box-shadow: 0px 3px 4px #ebe7e7;
+}
+.personalData h2{
+    font-size: 18px;
+    font-weight: 550;
+    text-align: left;
+    padding: 15px;
+    color: #000;
+}
+.inputValues{
+  border: solid 1px;
+  border-radius:5px;
+  width: 350px;
+  height: 50px;
+  padding: 10px;
+  outline: none;
+  margin: 10px;
+  border-color: #d3d6da;
+  color: #000;
+}
+.inputValues input[type="text"],
+input[type="email"],
+input[type="tel"]::placeholder {
+    font-size: 14px;
+    opacity: 0.5;
+    /* color: #9e9e9e; */
+}
+.country-flag{
+    width: 45px;
+    height: 30px;
+    padding:5px;
+    display: flex;
+    margin: 5px;
+}
+.countrySelection{
+  width: 350px; /* Set your desired width */
+  height: 70px;
+}
+
+.selected-option {
+    display: flex; 
+    flex-direction: row;
+    justify-content:start;
+   
+  }
+  .error-message {
+    color: #ff0000; 
+    font-size: 14px; 
+    margin-left: 15px;
+    text-align: start;
+   
+  }
+  .error{
+    border: solid 1px;
+    border-radius:5px;
+    width: 350px;
+    height: 50px;
+    padding: 10px;
+    outline: none;
+    margin: 10px;
+    border-color:#ff0000 ;
+  }
+  .errorTraveller{
+    border: solid 1px;
+    border-radius:5px;
+    width: 280px;
+    height: 50px;
+    padding: 10px;
+    outline: none;
+    margin: 5px;
+    border-color:#ff0000 ;
+  }
+  .travellersInput{
+  border: solid 1px;
+  border-radius:5px;
+  width: 280px;
+  height: 50px;
+  padding: 10px;
+  outline: none;
+  margin: 5px;
+  margin-bottom: 15px;
+  border-color: #d3d6da;
+  }
+ 
+  .payment-option input[type="radio"] {
+    /* width: 15px !important;
+    height: 15px !important;
+    margin: 5px !important; */
+    display: none;
+   
+  }
+  
+  
+.payment-option input[type="radio"]:checked  {
+    accent-color: #007bff ;   
+    border-color: #007bff; 
+} 
+.payment-options-grid {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    grid-gap: 2px; 
+  }
+  
+  .payment-option input[type="radio"] + label {
+    border: solid #d3d6da 2px;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content:start;
+    outline: none;
+  }
+ /* Define the styles for the checked radio button */
+.payment-option input[type="radio"]:checked + label {
+    accent-color: #007bff;
+    border-color: #007bff; /* Checked border color */
+  }
+  .payment-option input[type="radio"] + label:hover{
+    border:solid 2px #007bff;
+  }
+  .termsAndAgreement input[type='checkbox']{
+    margin: 8px;
+    
+  }
+  .termsAndAgreement input[type='checkbox']:checked{
+    accent-color: #007bff;
+  } 
+  .termsAndAgreement{
+    background-color: #ffffff;
+    border:solid 2px #d3d6da;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 20px;
+    text-align: left;
+  }
+  .submitBtn{
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    margin: 15px;
+    width: 96%;
+    height: 50px;
+    background-color: #007bff;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 500;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 10px;
+  }
+  
+
+/* 
+
+.Toastify__toast.Toastify__toast--success {
+  background: #34A853;  
+  color: white;    
+  border-radius: 10px; 
+}
+
+
+.Toastify__toast.Toastify__toast--success button {
+  color: white; 
+}
+
+
+.Toastify__toast.Toastify__toast--success .Toastify__progress-bar {
+  background: white; 
+}
+ */
