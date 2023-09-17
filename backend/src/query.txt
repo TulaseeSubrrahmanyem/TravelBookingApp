@@ -1,0 +1,68 @@
+// Route to search hotels by location (city)
+router.get('/search', async (req, res, next) => {
+  try {
+    const { city,hotelName } = req.query;
+
+    // Connect to the database
+    const db = await connectToDatabase();
+
+    if (!db) {
+      return res.status(500).json({ message: 'Database connection error' });
+    }
+
+    const collection = db.collection('hotelBooking');
+
+  
+    let query = {};
+
+    if (city) {
+      // If a city is provided, search by city
+      query = { city: { $regex: city, $options: 'i' } };
+    } else if (hotelName) {
+      // If a hotelName is provided, search by hotel name
+      query = { name: hotelName };
+    } else {
+      return res.status(400).json({ message: 'Invalid request. Please provide a city or hotelName.' });
+    }
+
+    // Aggregation to join hotelBooking with hotelPhotos
+    const hotelsWithImages = await collection.aggregate([
+      {
+        $match: query,
+      },
+      {
+        $lookup: {
+          from: 'hotelPhotos',
+          localField: 'name',//this  is first collection to match
+          foreignField: 'hotel_name',//this  is second collection to match
+          as: 'images',
+        },
+      },
+      {
+        $lookup: {
+          from: 'hotelRating', // Join with the hotelRating collection
+          localField: 'name',
+          foreignField: 'name',
+          as: 'rating', // Store the rating details in the 'rating' field
+        },
+      },
+      {
+        $lookup: {
+          from: 'hotelRoomTypesAndPrices', // Join with the hotelRoomtype Prices collection
+          localField: 'name',
+          foreignField:'name',
+          as: 'prices', // Store the price details in the 'prices' field
+        },
+      },
+     
+    ]).toArray();
+
+    if (hotelsWithImages.length === 0) {
+      return res.status(404).json({ message: `No hotels available for the city: ${city || 'No city specified'}.` });
+    }
+
+    res.json(hotelsWithImages);
+  } catch (error) {
+    next(error); // Pass the error to the error handling middleware
+  }
+});
