@@ -12,7 +12,7 @@ import { noConflict } from 'leaflet';
 function HotelRoomDetails() {
   
   const location = useLocation();
-  const { roomTypes,CheckInDate,CheckOutDate,Adults,Childs,errorMessage } = location.state || {};
+  const { roomTypes,CheckInDate,CheckOutDate,Adults,Childs,errorMessage,hotelsWithImagesAndData, searchedCity } = location.state || {};
  // console.log("CheckInDate,CheckOutDate",CheckInDate,CheckOutDate,Adults,Childs)
   const navigate=useNavigate()
   // room,roomData.Roomtype ,room.city,room.name,roomData.Price[guestIndex]
@@ -25,18 +25,27 @@ function HotelRoomDetails() {
       <div className='container'>
         <div className='row '>
           <div className='d-flex flex-row justify-content-evenly'>
-          <a href="/hotel" style={{ color: '#007bff', textDecoration: 'none',margin:"20px" }}>Home</a>
-          <Link to={{
-            pathname: '/hotel/hotelsList',
-            // state: {
-            //   hotels: hotelsWithImagesAndData, // Pass the hotels data
-            //   city: searchedCity, // Pass the city
-            //   error: errorMessage, // Pass the error message if any
-            // },
-            }}
-             style={{ color: '#007bff', textDecoration: 'none', margin:"20px"}}>
-             Back
-             </Link>
+          <a href="/hotel" style={{ color: '#007bff', textDecoration: 'none',margin:"20px",marginTop:"30px" }}>Home</a>
+          
+             <button
+              onClick={() => {
+                navigate('/hotel/hotelsList', {
+                  state: {
+                    hotels: hotelsWithImagesAndData,
+                    city: searchedCity,
+                    CheckInDate:CheckInDate,
+                    CheckOutDate:CheckOutDate,
+                    error: errorMessage,
+                    // Include any other necessary data from this page
+                  },
+                  replace: true,
+                });
+              }}
+              style={{ color: '#007bff', textDecoration: 'none',margin:"20px",border:"none",outline:'none',background:'none',marginTop:"30px" }}
+            >
+              Go back
+            </button>
+
 
           </div>
         

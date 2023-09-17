@@ -55,7 +55,12 @@ function HotelListPage() {
       console.log('Starting useEffect');
       let filteredData = [...hotelsWithImagesAndData];
   
-    
+        // Check if hotelsWithImagesAndData is empty
+      if (filteredData.length === 0) {
+        setIsLoading(false); // Set isLoading to false immediately
+        return; // Exit the useEffect
+      }
+
       filteredData = filteredData.filter((hotel) => {
         const price = parseInt(hotel.prices[0].rooms[0].Price[0].replace(/[^\d]/g, ''), 10);
         const hotelName = hotel.name.toLowerCase();
@@ -98,7 +103,8 @@ function HotelListPage() {
       setTimeout(() => {
         setIsLoading(false); // Set isLoading to false after a certain duration (adjust as needed)
       }, 1000);
-      return setCurrentHotels(filteredData.slice(indexOfFirstItem, indexOfLastItem));
+
+       setCurrentHotels(filteredData.slice(indexOfFirstItem, indexOfLastItem));
         // Introduce a timeout to simulate loading
         
     } catch (error) {
@@ -106,7 +112,9 @@ function HotelListPage() {
       return [];
     }
   },[sortingCriteria, indexOfFirstItem, indexOfLastItem, hotelsWithImagesAndData, priceRange, searchHotelName, minStarRating]);
- 
+ //
+  
+
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -153,7 +161,7 @@ function HotelListPage() {
       console.log('Room Details:', response.data);
       //console.log('Dates:',locationState.CheckInDate,locationState.CheckOutDate)
       setRoomTypes(response.data)
-      navigate('/hotel/roomdetails', { state: { roomTypes: response.data,CheckInDate:locationState.CheckInDate,CheckOutDate:locationState.CheckOutDate,Adults:locationState.adults,Childs:locationState.children,errorMessage:''} });
+      navigate('/hotel/roomdetails', { state: { roomTypes: response.data,CheckInDate:locationState.CheckInDate,CheckOutDate:locationState.CheckOutDate,Adults:locationState.adults,Childs:locationState.children,errorMessage:'',hotelsWithImagesAndData,searchedCity} });
       }else{
         console.error('Empty response from the server');
         toast('Empty response from the server')
@@ -322,7 +330,7 @@ function HotelListPage() {
                         
                       <ul>
                         {currentHotels.map((hotel,index) => (
-                          <li key={index} className="itemsListCard">
+                          <li key={hotel.id} className="itemsListCard">
                             <div className='d-flex flex-row justify-content-start '>
                               {hotel.images && hotel.images.length > 0 ? (
                                 <div>

@@ -14,7 +14,7 @@ function RoomBooking() {
   const location = useLocation();
   const { roomBookingDetails,hotelName,hotelCity,roomName,roomPrice ,CheckInDate,CheckOutDate,Adults,Childs} = location.state || {};
   //console.log(roomBookingDetails,roomBookingDetails.city,roomName,roomPrice,CheckInDate,CheckOutDate)
- // console.log(taxPrices)
+  console.log("dates",CheckInDate,CheckOutDate)
   const initialTraveler = {
     salutation: 'Mr',
     travelerFirstName: '',
@@ -28,8 +28,8 @@ function RoomBooking() {
     hotelCity: hotelCity,
     roomName:roomName || '',
     roomPrice: roomPrice ? parseFloat((roomPrice || '').replace('₹', '').replace(',', '')) : 0,
-    checkInDate:CheckInDate.toISOString(),
-    checkOutDate:CheckInDate.toISOString(),
+    checkInDate:CheckInDate?CheckInDate.toISOString():'',
+    checkOutDate:CheckOutDate?CheckOutDate.toISOString():'',
     firstName: '',
     lastName: '',
     email: '',
