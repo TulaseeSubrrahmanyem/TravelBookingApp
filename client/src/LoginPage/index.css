@@ -1,0 +1,75 @@
+body{
+   
+    margin: 0px;
+}
+
+.loginBg{
+    background-image: url('https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?cs=srgb&dl=pexels-oleksandr-p-3278215.jpg&fm=jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+   
+    height: 100vh;
+    padding: 0px;
+    margin: 0px;
+   
+}
+.loginCard{
+    background-color: white;
+    width: 350px;
+    height: 70%;
+    padding: 20px;
+    margin-top:90px;
+    margin-right: 70px;
+    float: right;
+    align-self: center;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+.loginCard h2{
+    font-size: 20px;
+    font-weight: 650;
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+.loginCard input[type='text'] {
+    font-size: 16px;
+    background-color:#F8F9FA;
+    border: solid 1px;
+    border-radius: 5px;
+    border-color: #ccc;
+    padding: 10px;
+    width: 250px;
+    height: 40px;
+    margin: 20px auto;
+    outline: none;
+   
+  }
+  .loginCard input[type='password'] {
+    font-size: 16px;
+    background-color:#F8F9FA;
+    border: solid 1px;
+    border-radius: 5px;
+    border-color: #ccc;
+    padding: 10px;
+    width: 250px;
+    height: 40px;
+    margin: 10px auto;
+    outline: none;
+  }
+  
+  .loginCard button {
+    font-size: 16px;
+    background-color:#007bff;
+    border:none;
+    border-radius: 5px;
+    padding: 10px;
+    width: 250px;
+    height: 40px;
+    margin: 30px auto;
+    color: white;
+    font-weight: 550;
+    outline: none;
+  }
+  
