@@ -89,3 +89,14 @@
   border-width: 1px;
  
 }
+.profileBtn{
+  background-color: #f8f9fa;
+  border: none;
+  color:#007bff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 18px;
+  font-weight: 600px;
+  text-align: center;
+}

@@ -5,7 +5,7 @@ import { Rating } from '@mui/material';
 import { LocationOn } from '@mui/icons-material';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import "./hotelFeatures.css";
-const HotelFeatures = () => {
+  const HotelFeatures = () => {
   const [hotelData, setHotelData] = useState([]);
 
   useEffect(() => {

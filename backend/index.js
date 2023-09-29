@@ -8,6 +8,7 @@ const port = process.env.PORT || 8080;
 const connectToDatabase = require("./src/configdb/db");
 const hotelRoutes = require('./src/controllers/hotelsList');
 const roomBooking = require('./src/controllers/roomBooking');
+const userRoutes = require('./src/controllers/userAuthentication');
 
 // Middleware for handling database errors
 const handleDatabaseError = (err, req, res, next) => {
@@ -32,7 +33,7 @@ connectToDatabase()
     
      // Use the roomBooking routes
      app.use('/api', roomBooking);
-
+     app.use('/api/users', userRoutes);
      // Error handling middleware for database errors
      app.use(handleDatabaseError);
 
