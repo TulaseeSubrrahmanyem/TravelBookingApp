@@ -15,7 +15,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { ToastContainer ,toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import HotelSearchBox from '../components/hotelSearchBox.js';
- // Import your custom CSS fileker.css';
+import Footer from '../FooterContent'
 
 function Home() {
   const [svgColor, setSvgColor] = useState("#ffffff"); // Initial color
@@ -642,12 +642,10 @@ function Home() {
          {activeBtn === "hotel" && (
            <HotelSearchBox/>
          )}
-        </div>
-       
-      </div> 
-   
+        </div>       
+      </div>    
       <HotelFeatures/>
-
+      {/*<Footer/>*/}
     </section>
 
 

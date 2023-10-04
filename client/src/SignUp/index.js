@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect,useContext } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 import jwtDecode from 'jwt-decode';
 import Cookies from 'js-cookie';
+import {store} from '../App';
 import './index.css';
 import { ToastContainer ,toast} from 'react-toastify';
 
 function SignUp() {
   const navigate = useNavigate();
+  const [token, setToken] = useContext(store);
   const [username, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -82,8 +84,11 @@ function SignUp() {
 
       const newToken = serverResponse.data.token;
       Cookies.set('jwtToken', newToken, { expires: 7 });
-      localStorage.setItem('jwtToken', newToken);
-
+      console.log('Token stored in cookies:', newToken);
+     // Store the token in local storage
+     localStorage.setItem('jwtToken', newToken);
+     console.log('Token stored in local storage:', newToken);
+     setToken(newToken)
       navigate('/');
     } catch (error) {
       console.error('Error:', error);

@@ -1,0 +1,195 @@
+.myProfile {
+  background-color: #f8f9fa;
+  padding: 20px;
+  width: 100%;
+  min-height: 100vh;
+  max-height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.userCard {
+  background-color: #fff;
+  width: 280px;
+  height: 180px;
+  padding: 10px;
+  border-radius: 5px;
+  margin-right: 10px; /* Adjust the margin here */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Add a shadow for better separation */
+}
+
+/* Rest of your CSS remains the same */
+
+  
+  .userName {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 10px;
+  }
+  
+  .dashboardIcon {
+    /* Add styles for the dashboard icon if needed */
+  }
+  
+  .optionBar {
+    background-color: #fff;
+    width: 280px;
+    height: 210px;
+    padding: 1px;
+    border-radius: 5px;
+    margin: 10px 0; /* Updated margin to remove left and right space */
+    box-shadow: 0px 1px 2px #888888;
+  }
+  
+  
+  .dashboard,
+  .bookings,
+  .profile,
+  .logout {
+    font-size: 16px;
+    font-weight: 550;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s; /* Add a smooth transition */
+  
+  }
+  
+  /* Add a hover effect for the optionBar items */
+  .optionBar div:hover {
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+    padding: 10px;
+    margin: 0px;
+  }
+ .active-item{
+    background-color: #007bff; /* Background color for active item */
+    color: white; 
+    width: 100%;
+    padding:10px;
+    margin-top: 0px !important;
+  }
+  .dashboardCard {
+    background-color: #fff;
+    border-radius: 8px;
+    height: 240px;
+    margin: 10px;
+    padding: 20px;
+    width: 1240px; /* Add this line to ensure full width */
+    box-sizing: border-box; /* Include padding and border in the width calculation */
+    
+  }
+  
+  .noOfCount{
+    background-color: #f1f8ff;
+    padding: 30px;
+    border-radius: 8px;
+    width:100%;
+    margin: 10px;
+    
+  }
+  .noOfCount h6{
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 5px;
+  }
+  .noOfCount p{
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(65, 64, 64);
+    margin-top: 10px;
+  }
+.bookingsCard{
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 30px;
+  width: 100%;
+  margin:15px auto;
+}
+.bookingsCard h2{
+  font-size: 20px;
+  font-weight: 600;
+  text-align: left;
+  
+}
+
+.bookingsCard input[type='search']{
+  outline: none;
+  border: solid 1px;
+  border-radius: 2px;
+  border-color:#d3d6da;
+  margin: 5px;
+}
+.bookingsCard input[type='search']::placeholder{
+  font-size: 14px;
+}
+.tableDataBooking{
+  border-collapse: collapse;
+  width: 100%;
+  
+}
+
+.tableDataBooking th, td {
+  border: 1px solid black; /* Add a 1px solid black border to the table, th, and td elements */
+  padding: 10px; 
+  border-color:#d3d6da;
+  
+}
+.tableDataBooking th{
+  font-size: 14px;
+  font-weight: 600;
+
+}
+
+.tableDataBooking td{
+  font-size: 14px;
+
+}
+.tableDataBooking  tr:hover{
+  background-color: #eeeff1;
+
+}
+.cancelBtn{
+  outline: none;
+  border:none;
+  border-radius: 5px;
+  background-color: red;
+  color:#fff;
+  font-size: 16px;
+  font-weight: 550;
+}
+.profileHead{
+  font-size: 20px;
+  font-weight: 600;
+  text-align: left;
+  margin: 5px;
+}
+.inputLabel{
+  font-size: 14px;
+  font-weight: 550;
+  margin: 5px;
+
+  float: left;
+}
+.UptadeBtn{
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  margin: 10px;
+  width: 98%;
+  height: 50px;
+  background-color: #007bff;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 10px;
+  transition: transform 0.2s; /* Add a transition for the transform property */
+}
+.UptadeBtn:hover{
+  transform: scale(1.02); /* Scale the button to 110% on hover */
+}

@@ -14,7 +14,6 @@
   import citySuggestions from '../cities.json';
  
 
-
   function HotelSearchBox() {
     const navigate = useNavigate();
   
@@ -83,6 +82,7 @@
   
     const searchHotels = useCallback(async () => {
       console.log("Search button clicked")
+      setIsLoading(true); // Show loading indicator
       try {
         setIsLoading(true);
   
@@ -113,7 +113,7 @@
           return;
         } else {
           setHotels(response.data);
-        }
+        
   
         setTimeout(() => {
           navigate('/hotel/hotelsList/', {
@@ -129,6 +129,7 @@
             },
           });
         }, 1000);
+      }
       } catch (error) {
         console.error('Error fetching hotel data:', error);
         setIsLoading(false);
@@ -344,7 +345,7 @@
                   </div>
                 )}
               </div>
-              <button className='bookingBtn' onClick={searchHotels}>Search</button>
+              <button className='bookingBtn' onClick={searchHotels}>  {isLoading ? 'Searching...' : 'Search'}</button>
             </div>
           </div>
         </div>        

@@ -470,7 +470,7 @@ const handleFormSubmit = async (e) => {
                   onChange={handlePaymentChange}
                 />
                 <label htmlFor="paypal" className='d-flex flex-row justify-content-evenly'>
-                  <img src='https://cdn.pixabay.com/photo/2015/05/26/09/37/paypal-784404_1280.png' style={{ width: "100px", height: "50px" }} />
+                  <img src='https://cdn.pixabay.com/photo/2015/05/26/09/37/paypal-784404_1280.png' style={{ width: "100px", height: "40px" }} />
                 </label>
               </div>
               <div className='payment-option' htmlFor="googlepay">
@@ -483,7 +483,7 @@ const handleFormSubmit = async (e) => {
                   onChange={handlePaymentChange}
                 />
                 <label htmlFor="googlepay" className='d-flex flex-row justify-content-evenly'>
-                  <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBop6IB0_kvCubqocHH82cHC1GPleEirQ2AA&usqp=CAU' style={{ width: "180px", height: "50px", padding: "5px" }} />
+                  <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBop6IB0_kvCubqocHH82cHC1GPleEirQ2AA&usqp=CAU' style={{ width: "150px", height: "40px", padding: "5px" }} />
                 </label>
               </div>
               <div className='payment-option' htmlFor="upi">
@@ -496,7 +496,7 @@ const handleFormSubmit = async (e) => {
                   onChange={handlePaymentChange}
                 />
                 <label htmlFor="upi" className='d-flex flex-row justify-content-evenly'>
-                  <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-MIYaq0yECvXSLrya5K6hDb3T3VyBMzXP-bMDwvFpq53B1vxRyCb2MVWA3IXtdu7wVHQ&usqp=CAU' style={{ width: "150px", height: "50px", padding: "5px" }} />
+                  <img src='../images/upi.png' style={{ width: "150px", height: "40px", padding: "5px" }} />
                 </label>
               </div>
               <div className='payment-option' htmlFor="paylater">
@@ -509,7 +509,7 @@ const handleFormSubmit = async (e) => {
                   onChange={handlePaymentChange}
                 />
                 <label htmlFor="paylater" className='d-flex flex-row justify-content-evenly'>
-                  <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTA79wMp25qAK3bbsDKwdFeiqLxwvF52nNfQw&usqp=CAU' style={{ width: "150px", height: "50px", padding: "5px" }} />
+                  <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTA79wMp25qAK3bbsDKwdFeiqLxwvF52nNfQw&usqp=CAU' style={{ width: "120px", height: "40px", padding: "5px" }} />
                 </label>
               </div>
               {errors.paymentOption && <div className='error-message'>{errors.paymentOption}</div>}

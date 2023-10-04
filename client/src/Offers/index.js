@@ -3,7 +3,7 @@ import React from 'react';
 function Offers() {
   return (
     <div>
-      <h1>Offers Page </h1>
+      <p style={{textAlign:"center",marginTop:"60px",fontSize:"25px",}}>Offers Coming Soon... </p>
     </div>
   );
 }

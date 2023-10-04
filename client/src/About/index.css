@@ -1,0 +1,20 @@
+.aboutPage{
+    background-color: #fff;
+    padding: 0px;
+    border: solid 2px;
+    border-radius: 10px;
+    border-color: #e6e6e7;
+    margin: 30px;
+}
+.aboutPage h1{
+    font-size: 20px;
+    font-weight: 550;
+    float: left;
+    background-color:#e6e6e7 ;
+    display: block;
+    padding: 15px;
+}
+.aboutPage p{
+    padding: 20px;
+
+}

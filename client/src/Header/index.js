@@ -7,9 +7,8 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
-
-import './index.css'; // Import the CSS file
-
+import Tooltip from '@mui/material/Tooltip';
+import './index.css';
 function Header() {
   const [token, setToken] = useContext(store);
   const navigate = useNavigate();
@@ -41,6 +40,7 @@ function Header() {
     Cookies.remove('jwtToken');
     localStorage.removeItem('jwtToken');
     setToken(null);
+    navigate('/');
   };
 
   const userName = token ? decodeToken(token)?.user?.name : null;
@@ -57,6 +57,52 @@ function Header() {
     navigate('/myDashboard');
   };
 
+  const renderAuthButtons = () => {
+    if (token) {
+      if (token.startsWith('G_ENABLED_IDPS')) {
+        // User logged in with Google
+        return (
+          <div className='d-flex flex-row '>
+            <Button className="me-5 loginBtn" onClick={handleLogout}>
+              Logout
+            </Button>
+            <Tooltip title="My Profile" arrow className="custom-tooltip">
+              <Button className="me-5 profileBtn" onClick={profileBtn}>
+                {firstLetter}
+              </Button>
+            </Tooltip>
+          </div>
+        );
+      } else {
+        // User logged in with your application's credentials
+        return (
+          <div className='d-flex flex-row '>
+            <Button className="me-5 loginBtn" onClick={handleLogout}>
+              Logout
+            </Button>
+            <Tooltip title="My Profile" arrow className="custom-tooltip">
+              <Button className="me-5 profileBtn" onClick={profileBtn}>
+                {firstLetter}
+              </Button>
+            </Tooltip>
+          </div>
+        );
+      }
+    } else {
+      // User is not logged in
+      return (
+        <Nav>
+          <Button className="me-5 loginBtn" onClick={handleLoginClick}>
+            Login
+          </Button>
+          <Button className="signupBtn" onClick={handleSignUpClick}>
+            Sign Up
+          </Button>
+        </Nav>
+      );
+    }
+  };
+
   const showHeader = !(location.pathname === '/login' || location.pathname === '/signUp');
 
   return (
@@ -64,9 +110,11 @@ function Header() {
       {showHeader && (
         <Navbar collapseOnSelect expand="lg" bg="white" variant="light" className="navBar">
           <Container>
-            <Navbar.Brand href="/">
-              <img src="images/logo_2.png" alt="Logo" height="50" className="d-inline-block align-top" />
-            </Navbar.Brand>
+          <Link to="/">
+          <Navbar.Brand>
+            <img src="../images/logo_2.png" alt="Logo" height="50" className="d-inline-block align-top" />
+          </Navbar.Brand>
+          </Link>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto">
@@ -83,29 +131,7 @@ function Header() {
                   Offers
                 </NavLink>
               </Nav>
-              <Nav>
-              {token ? (
-                <div className='d-flex flex-row '>
-                  <Button className="me-5 loginBtn" onClick={handleLogout}>
-                    Logout
-                  </Button>
-                  <Button className="me-5 profileBtn" onClick={profileBtn}>
-                    {firstLetter}
-                  </Button>
-                </div>
-                
-              ) : (
-                <Nav>
-                  <Button className="me-5 loginBtn" onClick={handleLoginClick}>
-                    Login
-                  </Button>
-                  <Button className="signupBtn" onClick={handleSignUpClick}>
-                    Sign Up
-                  </Button>
-                </Nav>
-              )}
-              
-              </Nav>
+              <Nav>{renderAuthButtons()}</Nav>
             </Navbar.Collapse>
           </Container>
         </Navbar>

@@ -1,4 +1,4 @@
-import React, { useState, createContext } from 'react';
+import React, { useState, createContext,useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Flight from './Flight';
@@ -19,19 +19,24 @@ import LoginPage from './LoginPage';
 import SignUp from './SignUp';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import MyDashboard from './MyDashboard';
+import Footer from './FooterContent'
+import Careers from './career';
+import PrivacyPolicy from './PrivacyPolicy'
 
 export const store = createContext();
 
 function App() {
   Modal.setAppElement('#root');
   const [token, setToken] = useState(null);
-
+ 
   return (
     <div className="App">
       <store.Provider value={[token, setToken]}>
         <GoogleOAuthProvider>
           <Router>
+          <div className='app-container'>
             <Header />
+            <div>
             <ErrorBoundary>
               <Routes>
                 <Route path="/" element={<Home />} />
@@ -45,9 +50,14 @@ function App() {
                 <Route path="/room/booking" element={<RoomBooking />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/offers" element={<Offers />} />
+                <Route path="/careers" element={<Careers />} />
+                <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </ErrorBoundary>
+            </div>
+            <Footer/>
+         </div>
           </Router>
         </GoogleOAuthProvider>
       </store.Provider>
