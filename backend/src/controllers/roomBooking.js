@@ -2,7 +2,7 @@ const express = require('express');
 const { MongoClient } = require('mongodb');
 const router = express.Router();
 const RoomBooking = require('../models/RoomBooking.js');
-const middleware = require('../middleware/authMiddleware');
+const middleware = require('../middleware/authMiddleware.js');
 
 router.post('/roombookings', async (req, res) => {
     try {
