@@ -20,19 +20,27 @@ const handleDatabaseError = (err, req, res, next) => {
     stackTrace: err.stack,
   });
 };
+// const corsOptions = {
+//   origin: 'https://flourishing-sunflower-a236f2.netlify.app', // Replace with your Netlify frontend domain
+//   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+// };
+
 
 // Connect to the database and start the server
 connectToDatabase()
   .then(() => {
+    // app.use(express.static(path.join(__dirname,'./client/build')))
+    // app.get('*',function(req,res){
+    //   res.sendFile(path.join(__dirname,'./client/build/index.html'))
+    // });
      // Set up other middlewares and routes here
      app.use(cors()); // Enable CORS for all routes
+    //  app.use(cors(corsOptions));
      app.use(express.json());
-    app.use(express.static(path.join(__dirname,'./client/build')))
+    
      // Use the hotel routes
     app.use('/api/hotels', hotelRoutes);
-    app.get('*',function(req,res){
-      res.sendFile(path.join(__dirname,'./client/build/index.html'))
-    });
+   
      // Use the roomBooking routes
      app.use('/api', roomBooking);
      app.use('/api/users', userRoutes);
