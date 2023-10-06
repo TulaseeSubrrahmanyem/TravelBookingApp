@@ -208,10 +208,10 @@ const handleFormSubmit = async (e) => {
 
   
   return (
-    <div className='bg-light'>
+    <div className='bg-light roomBookingMain'>
  
         <h1 className='topHeading'>Room Booking</h1>
-        <div className='d-flex flex-row justify-content-evenly'>
+        <div className='d-sm-flex flex-sm-column d-md-flex flex-md-row justify-content-md-evenly'>
           <div>
           <form onSubmit={handleFormSubmit}>
             <div className='personalData'>
@@ -219,7 +219,7 @@ const handleFormSubmit = async (e) => {
                 <h2>Personal Information</h2>
                 <hr style={{ margin: '0px' }} />
               </div>
-              <div className='d-flex flex-row justify-content-around mt-3'>
+              <div className='d-sm-flex flex-sm-column d-md-flex flex-md-row justify-content-md-around mt-3'>
                 <div>
                   <input
                     type='text'
@@ -243,7 +243,7 @@ const handleFormSubmit = async (e) => {
                   {errors.lastName && <div className='error-message'>{errors.lastName}</div>}
                 </div>
               </div>
-              <div className='d-flex flex-row justify-content-around'>
+              <div className='d-sm-flex flex-sm-column d-md-flex flex-md-row justify-content-md-around'>
                 <div>
                   <input
                     type='email'
@@ -274,12 +274,12 @@ const handleFormSubmit = async (e) => {
                   placeholder='Address'
                   value={formData.address}
                   onChange={handleInputChange}
-                  style={{ width: '96%' }}
-                  className={errors.address ? 'error' : 'inputValues'}
+                  
+                  className={errors.address ? 'error' : 'inputValuesAddress'}
                 />
                 {errors.address && <div className='error-message'>{errors.address}</div>}
               </div>
-              <div className='d-flex flex-row justify-content-around'>
+              <div className='d-sm-flex d-sm-column d-md-flex flex-md-row justify-content-md-around'>
                 <div className='d-flex flex-column justify-content-start mt-2'>
                   <p style={{ fontSize: "16px", fontWeight: "550", textAlign: "left" }}>Nationality</p>
                   <div className='countrySelection'>
@@ -384,8 +384,10 @@ const handleFormSubmit = async (e) => {
               <h2>Travellers Information</h2>
               <hr style={{ margin: '0px' }} />
               {formData.travelers.map((traveler, index) => (
-                <div key={index} className='d-flex flex-row justify-content-center mt-2'>
-                  <Select
+                <div key={index} className='d-sm-flex flex-sm-column justify-content-sm-start d-md-flex flex-md-row justify-content-md-center mt-2'>
+                  
+                <div className='d-flex flex-row d-md-flex'>
+                <Select
                     className='customSelect'
                     name='salutation'
                     value={{
@@ -402,8 +404,19 @@ const handleFormSubmit = async (e) => {
                     ]}
                     styles={customStyles}
                   />
-  
-                  <div className='d-flex flex-row'>
+                  <div>
+                    {index === 0 ? (
+                      <div className='addBtn d-md-none' onClick={handleAddTraveler}>
+                        <FontAwesomeIcon icon={faCirclePlus} style={{ color: '#d3d6da', fontSize: '30px', margin: "4px" }} />
+                      </div>
+                    ) : (
+                      <div className='removeBtn d-md-none' onClick={() => handleRemoveTraveler(index)}>
+                        <FontAwesomeIcon icon={faCircleMinus} style={{ color: '#d3d6da', fontSize: '30px', margin: "4px" }} />
+                      </div>
+                    )}
+                   </div> 
+                  </div>
+                  <div className='d-sm-flex flex-sm-column d-md-flex flex-md-row justify-content-md-center'>
                     <div>
                       <input
                         type='text'
@@ -443,11 +456,11 @@ const handleFormSubmit = async (e) => {
                   </div>
   
                   {index === 0 ? (
-                    <div className='addBtn' onClick={handleAddTraveler}>
+                    <div className='addBtn d-none d-md-block' onClick={handleAddTraveler}>
                       <FontAwesomeIcon icon={faCirclePlus} style={{ color: '#d3d6da', fontSize: '30px', margin: "10px" }} />
                     </div>
                   ) : (
-                    <div className='removeBtn' onClick={() => handleRemoveTraveler(index)}>
+                    <div className='removeBtn  d-none d-md-block' onClick={() => handleRemoveTraveler(index)}>
                       <FontAwesomeIcon icon={faCircleMinus} style={{ color: '#d3d6da', fontSize: '30px', margin: "10px" }} />
                     </div>
                   )}

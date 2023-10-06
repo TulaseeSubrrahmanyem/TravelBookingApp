@@ -1,8 +1,6 @@
 .hotleRoomDetails{
     padding: 10px;
-    margin:0px;
-    
-    
+    margin:0px;  
 }
 .detailsCard{
     background-color: #ffff;
@@ -97,6 +95,12 @@
     border: 1px solid #ddd; 
    
   }
+  /* .roomPriceTable tb,td,tr {
+    border: 1px solid black; 
+    padding: 10px; 
+    border-color:#d3d6da;
+    
+  } */
   .roomPriceTable th{
     padding: 0px;
     margin-left: 35px;
@@ -161,10 +165,94 @@
   .bookingButton:hover{
     background-color: #0361c5;
   }
-  /* .verticalLine{
+  .hotelRating1{
+    color: gold;
+    width:12px;
+  }
+  .verticalLine{
     border: none;
     border-left: 1px solid hsla(200, 10%, 50%,100);
     width: 1px;      
     margin: 0px; 
     padding: 0px;
-  } */
+  
+  }
+  .roomTaxes{
+    font-size:13px;
+    margin-top:0px;
+    color:#6d6e6e;
+    font-weight:500;
+  }
+  
+  @media (max-width: 767px){
+    
+  
+.hotelImg{
+   width:100%;
+   height:180px;
+}
+.star1 li{
+  padding-left:0px;
+  padding-top: 0px;
+  
+}
+.detailsCard{
+  background-color: #ffff;
+  padding:10px;
+  border-radius: 10px;
+  margin-top: 30px;
+}
+.hotelName{
+  margin: 0px;
+}
+.hotelRating1{
+  color: gold;
+  width:12px;
+  margin: 0px;
+  /* padding: 0px; */
+  padding-left: 0px;
+}
+.large-images{
+  width: 100%;
+  height: 200px;
+  border-radius: 10px;
+  margin: 5px;
+  transition: transform 0.3s;
+}
+
+.medium-images {
+  width: 150px;
+  height: 100px;
+  border-radius: 10px;
+  margin: 5px;
+  transition: transform 0.3s;
+}
+
+.small-images{
+  width:150px;
+  height: 180px;
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+.verticalLine{
+  display: none;
+}
+.roomPriceTable tbody  td{
+  padding:10px;
+  margin: 0px;
+    
+}
+.roomPricesCard{
+ 
+  padding: 20px;
+  margin: 0px;
+  margin-top: 10px;
+ 
+}
+/* .roomTaxes{
+  font-size:13px;
+  margin-top:0px;
+  color:#6d6e6e;
+  font-weight:500;
+} */
+}

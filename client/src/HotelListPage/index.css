@@ -1,11 +1,16 @@
-
+.hotelSearch{
+  height: 120px;
+  padding: 30px;
+  background-color: #fff;
+  align-items: center;
+  /* margin:55px auto; */
+}
 .hotelListPage{
     background-color: #faf7f7;
-    min-height: 100vh;
-    max-height: 100%;
+    min-height: 100%;
     max-width: 100vw;
     min-width: 100%;
-  
+   
 }
 .hotelDetailBar{
     background-color: rgb(0, 147, 245);
@@ -22,13 +27,13 @@
     font-weight: 500;
     color: #ffffff;
 }
-.sortButton{
+/* .sortButton{
     font-size: 18px;
     font-weight: 550;
     color: #ffffff;
     margin: 10px;
    
-}
+} */
 .featuresBar{
     background-color: #ffffff;
     width: 820px;
@@ -68,11 +73,20 @@
     height: 55px; /* Adjust the height as needed */
     margin: 0px;
 }
+.hotelImtesList  ul{
+  /* width: 100%; */
+  padding:0px;
+  margin: 0px;
+  list-style: none;
+  margin-left: 30px;
+  
+}
 .itemsListCard{
+  
     background-color: #ffffff;
     width:820px;
     height: 160px;
-    margin: 15px;
+     margin: 15px; 
     border-radius: 5px;
     transition: transform 0.2s ease; /* Add smooth transition */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow effect */
@@ -83,10 +97,8 @@
     border:solid 2px;
     border-color: rgb(0, 147, 245) ;
 }
-ul li{
-    list-style: none;
-    padding-left:0px;
-}
+
+ 
 .star{
     padding-left: 5px;
 }
@@ -139,9 +151,7 @@ ul li{
   align-items: center; /* Center items horizontally */
   justify-content: center; /* Center items vertically */
   height: 80vh; /* Adjust the height to your preference */
-    /* background-image: url('../../public/images/serverError404.jpg');
-    background-size: cover; 
-    background-repeat: no-repeat; */
+   
     margin: 0;
     padding: 0;
     width: 100vw;
@@ -203,23 +213,9 @@ ul li{
   .min-value,
   .max-value {
     color: #007bff; /* Change the range value color */
-    font-size: 12px; /* Adjust font size */
+    font-size: 14px; /* Adjust font size */
   }
  
-
-/* Style the Slider handles with a data-value attribute */
-/* .rc-slider-handle::before {
-    content: attr(data-value); 
-    position: absolute;
-    top: -30px; 
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #81b4eb;
-    color: rgb(5, 5, 5); 
-    border-radius: 5px; 
-    white-space: nowrap; 
-    z-index: 1; 
-  } */
  .search-by-name{
     align-self: center;
  }
@@ -251,3 +247,153 @@ ul li{
   .fa-star{
     margin-left: 5px;
   }
+  .hotelImg{
+    width: 200px;
+     height:160px;
+  }
+.hotelRating{
+  color: gold;
+  width:12px;
+}
+  @media (max-width: 767px){
+    
+    .hotelSearch{
+      height: 100%;
+      padding: 5px;
+      background-color: #fff;
+      align-items: center;
+     
+      /* margin:55px auto; */
+    }
+    .side-slide-card{
+      padding: 10px;
+      margin: 10px auto;
+    }
+    .min-value,
+    .max-value {
+      color: #007bff; /* Change the range value color */
+      font-size: 16px; /* Adjust font size */
+    }
+    .search-by-name{
+      align-self:flex-start;
+      padding: 5px;
+      width: 300px;
+      
+   }
+   .search-by-name input[type='text']{
+    height: 40px;
+    width: 300px;
+    font-size: 15px;
+   }
+   .price-range-slider-container {
+    padding: 10px;
+    width:300px;
+    margin-top: 20px;
+    align-self:flex-start;
+  }
+  .rating-checkboxes{
+    margin-left: 10px;   
+    align-self: flex-start;
+  }
+  .rating-checkboxes label{
+    align-self: flex-start;
+    margin-left:5px;
+    cursor: pointer;
+   
+  }
+  .rating-checkboxes input[type='checkbox']{
+    accent-color:#007bff ;
+    cursor: pointer;
+    
+  }
+  .fa-star{
+    margin-left: 25px;
+  }
+  .hotelDetailBar{
+    background-color: rgb(0, 147, 245);
+    width: 100%;
+  
+    margin-top: 30px;
+    padding: 20px;
+    margin-left: 0px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 2px #888888;
+}
+.itemsDetailsSide{
+   margin: 10px ;
+   
+}
+.featuresBar{
+  background-color:none;
+  width:100%;
+  margin-top: 15px;
+  box-shadow: 0px 1px 2px #888888;
+  margin-left: 0px;
+  border-radius: 10px;
+  padding: 0px;
+ 
+}
+.sortButton{
+  border: none;
+  width: 100%;
+  padding: 15px;
+  background-color: transparent;
+  font-size: 16px;
+  font-weight: 550;
+  color: rgb(0, 147, 245);
+  width: 100%;
+  text-align: center;
+  margin: 0px;
+  border-radius:none ;
+}
+.hr-line{
+    border-bottom: 2px solid rgb(97, 95, 95);/* Adjust the color and thickness as needed */
+    height: 5px; /* Adjust the height as needed */
+    margin: 0px;
+}
+.sortButton.leftCorner{
+  
+  border-top-left-radius:0px;
+  border-bottom-left-radius: 0px;
+}
+.sortButton.rightCorner{
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.itemsListCard{
+  padding: 2px;
+  background-color: #ffffff;
+  width:100%;
+  height: 100%;
+   margin-top:30px; 
+  border-radius: 5px;
+  transition: transform 0.2s ease; /* Add smooth transition */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow effect */
+}
+.hotelImtesList  ul{
+  width: 100%;
+  padding:2px;
+  list-style: none;
+  margin-left:-15px;
+  /* margin-right: 15px; */
+}
+.hotelImg{
+  width:100%;
+   height:180px;
+}
+.star li{
+  padding-left:8px;
+  padding-top: 0px;
+  
+}
+.hotelName{
+  margin: 0px;
+}
+.hotelRating{
+  color: gold;
+  width:12px;
+  margin: 0px;
+  /* padding: 0px; */
+  padding-left: 5px;
+}
+}

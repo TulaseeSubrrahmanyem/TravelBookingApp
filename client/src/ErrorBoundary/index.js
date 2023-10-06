@@ -22,7 +22,7 @@ function ErrorBoundary(props) {
   if (hasError) {
     return (
       <div>
-        <h2>Something went wrong!</h2>
+        <h3 style={{textAlign:"center"}}>Something went wrong!</h3>
         <p>{error && error.toString()}</p>
       </div>
     );

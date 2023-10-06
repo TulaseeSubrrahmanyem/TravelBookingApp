@@ -3,12 +3,14 @@
   border-radius: 15px;
   margin: 40px;
   padding: 30px;
-  height: 100vh;
-
+  height: 100%;
+  /* display: block; */
 }
-body{
-   font-family: 'Roboto', sans-serif;
-   margin-top: 20px;
+.hotelFeature h1{
+    font-size:22px;
+    text-align:left;
+    font-weight:600;
+    margin-left:10px;
 }
 .hotelCard{
     background-color: rgb(255, 255, 255);
@@ -17,7 +19,7 @@ body{
     height: 420px;
     border-radius: 10px;
     box-shadow: 2px 6px 4px rgba(168, 166, 166, 0.3);
-
+    display: block;
 }
 .hotelCardImg{
     width: 100%;
@@ -50,5 +52,42 @@ body{
     width: 80px;
     font-weight: 550;
     font-size: 14px;
-    padding: 5px;
+    padding: 2px;
+    border-color: #007bff;
+    background-color: #fff;
+    color: #007bff;
+    
 }
+.hotelCard hr{
+    margin-top: 15px;
+}
+/* Mobile-specific styles for */
+@media (max-width: 767px) {
+    .hotelFeature{
+        margin: 30px;
+    }
+    .hotelFeature h1{
+        text-align: center;
+    }
+    .hotelCardImg{
+        height: 150px;        
+    }
+    .hotelCard{       
+        height: 370px;
+    }
+    .hotelCard hr{
+        margin-top: 5px;
+    }
+    .detailButton{
+        margin-top: 10px;
+    }
+  }
+  
+  /* Tablet-specific styles for  */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    
+  }
+  
+  
+  
+  

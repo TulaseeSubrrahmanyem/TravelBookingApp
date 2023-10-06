@@ -26,12 +26,12 @@ import "./hotelFeatures.css";
 
   // Check if hotelData is still empty or loading
   if (hotelData.length === 0) {
-    return <div>Loading...</div>;
+    return <div className='d-flex flex-row justify-content-center'>Loading...</div>;
   }
 
   return (
     <div className="hotelFeature ">
-      <h1 style={{fontSize:'22px', textAlign: 'left',fontWeight:'600', marginLeft:'10px'}}>Featured Hotels</h1>
+      <h1 >Featured Hotels</h1>
       <Carousel indicators={false}>
         {hotelData.map((hotel, index) => {
           if (index % 4 === 0) {
@@ -51,13 +51,13 @@ import "./hotelFeatures.css";
                          
                           <h5 className="hotelCardName ">{hotelChunk.hotelName}</h5>
                           <p className="hotelCardLocation "><LocationOn fontSize="small" /> {hotelChunk.location}</p>
-                          <hr style={{marginTop:"15px"}}/>
+                          <hr/>
                           <div className='d-flex flex-row justify-content-between'>
                           <p className='mt-1'>
                             INR{' '}
                             <span style={{ fontWeight: 'bold',fontSize:'16px' }}>{hotel.currency.split(' ')[1]}</span>
                           </p>
-                          <button type='button' className='detailButton'>Details   <ArrowForwardIosIcon style={{ fontSize: '14px',marginLeft:'4px' }} /> </button>
+                          <button type='button' className='detailButton'>Details   <ArrowForwardIosIcon style={{ fontSize: '12px',marginLeft:'4px',marginBottom:"3px" }} /> </button>
                           </div>
                           </div>
                       </div>

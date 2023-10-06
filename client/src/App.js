@@ -1,5 +1,7 @@
 import React, { useState, createContext,useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+// index.js or App.js
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import Flight from './Flight';
 import Home from './Home';
@@ -22,7 +24,8 @@ import MyDashboard from './MyDashboard';
 import Footer from './FooterContent'
 import Careers from './career';
 import PrivacyPolicy from './PrivacyPolicy'
-
+import HowToBook from './HowToBook';
+import TermsOfUse from './TermsOfUse';
 export const store = createContext();
 
 function App() {
@@ -36,7 +39,7 @@ function App() {
           <Router>
           <div className='app-container'>
             <Header />
-            <div>
+            <div className='contentElement'>
             <ErrorBoundary>
               <Routes>
                 <Route path="/" element={<Home />} />
@@ -52,10 +55,13 @@ function App() {
                 <Route path="/offers" element={<Offers />} />
                 <Route path="/careers" element={<Careers />} />
                 <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
+                <Route path="/HowtoBook" element={<HowToBook />} />
+                <Route path="/TermsOfUse" element={<TermsOfUse />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </ErrorBoundary>
             </div>
+            {/*<Footer/>*/}
             <Footer/>
          </div>
           </Router>

@@ -180,23 +180,23 @@ function HotelListPage() {
   
   return (
     <div className='hotelListPage bg-light m-0 p-0'>
-    {isLoading ?(<div>Loading ...</div>):
+    {isLoading ?(<div className='d-flex flex-row justify-content-center'>Loading ...</div>):
     ( 
     <>
-      <div className="d-flex flex-column justify-content-center align-item-center">
+      <div className="d-flex flex-column justify-content-center align-item-center hotelSearch">
           <HotelSearchBox />
-        </div>
+      </div>
   
         <div className='container'>
           <div className='row'>
             {hotelsWithImagesAndData.length > 0 ? (
               <div className='m-0 p-0 w-100'>
-              <div className='d-flex flex-row justify-content-between'>
+              <div className='d-sm-flex d-sm-column d-md-flex flex-md-row justify-content-md-between'>
                 
                     {/*slider search options */}  
                   <div className='d-flex flex-column  side-slide-card'>
                     <div className="price-range-slider-container">
-                      <p style={{fontSize:"16px",fontWeight:"550",textAlign:"start"}}>Price </p>
+                      <p style={{fontSize:"16px",fontWeight:"600",textAlign:"start"}}>Price </p>
                       <div className="slider-labels">
                         <div className="min-value">
                           {priceRange[0]} INR
@@ -228,7 +228,7 @@ function HotelListPage() {
                     <hr/>
                   {/*hotel name to search */}
                     <div className='d-flex flex-column justify-content-start search-by-name'>
-                    <label htmlFor='hotelName' style={{fontSize:"16px",fontWeight:"550",textAlign:"start",marginBottom:"10px"}}>Search by Name</label>
+                    <label htmlFor='hotelName' style={{fontSize:"16px",fontWeight:"600",textAlign:"start",marginBottom:"10px"}}>Search by Name</label>
                       <input
                         type="text"
                         id="hotelName"
@@ -242,7 +242,7 @@ function HotelListPage() {
                     <hr/>
                   {/*rating by search */}
                     <div className="rating-checkboxes d-flex flex-column  pb-3">
-                      <p style={{fontSize:"16px",fontWeight:"550",alignItem:"start"}}>Star Rating </p>
+                      <p style={{fontSize:"16px",fontWeight:"600",alignItem:"start"}}>Star Rating </p>
                       <label>
                         <input
                           type="checkbox"
@@ -296,43 +296,45 @@ function HotelListPage() {
                       </label>
                     </div>
                   </div>
-                  {/*price rance to sorting */} 
-                  <div> 
-                  <div className='hotelDetailBar'>
-                    <div className='d-flex flex-row justify-content-between '>
-                      <p>{hotelsWithImagesAndData.length} Properties found</p>
-                      <p>{searchedCity}</p>
-                    </div>
-                    </div>
-                    <div className='featuresBar'>
-                      <div className='d-flex flex-row justify-content-evenly'>
-                        <button
-                          className={`sortButton ${activeButton === 'lowToHigh' ? 'active leftCorner' : ''}`}
-                          onClick={() => handleSort('lowToHigh')}
-                        >
-                          Lowest to Higher
-                        </button>
-                        <hr className='hr-line' />
-                        <button
-                          className={`sortButton ${activeButton === 'highToLow' ? 'active' : ''}`}
-                          onClick={() => handleSort('highToLow')}
-                        >
-                          Highest to Lower
-                        </button>
-                        <hr className='hr-line' />
-                        <button
-                          className={`sortButton ${activeButton === 'rating' ? 'active rightCorner' : ''}`}
-                          onClick={() => handleSort('rating')}
-                        >
-                          Star Rating
-                        </button>
+                  {/*price range to sorting */} 
+                  <div className='d-flex flex-column justify-content-center itemsDetailsSide'> 
+                     {/*hotelDetailBar */} 
+                     <div className='hotelDetailBar'>
+                      <div className=' d-flex flex-row justify-content-between '>
+                        <p>{hotelsWithImagesAndData.length} Properties found</p>
+                        <p>{searchedCity}</p>
                       </div>
-                    </div>
-                        
-                      <ul>
+                     </div>
+                      {/*feature bar */}
+                      <div className='featuresBar'>
+                        <div className='d-sm-flex flex-sm-column  d-md-flex flex-md-row justify-content-md-evenly'>
+                          <button
+                            className={`sortButton ${activeButton === 'lowToHigh' ? 'active leftCorner' : ''}`}
+                            onClick={() => handleSort('lowToHigh')}
+                          >
+                            Lowest to Higher
+                          </button>
+                          <hr className='hr-line' />
+                          <button
+                            className={`sortButton ${activeButton === 'highToLow' ? 'active' : ''}`}
+                            onClick={() => handleSort('highToLow')}
+                          >
+                            Highest to Lower
+                          </button>
+                          <hr className='hr-line' />
+                          <button
+                            className={`sortButton ${activeButton === 'rating' ? 'active rightCorner' : ''}`}
+                            onClick={() => handleSort('rating')}
+                          >
+                            Star Rating
+                          </button>
+                        </div>
+                      </div>
+                      <div className='hotelImtesList d-flex flex-column justify-content-center'>  
+                       <ul >
                         {currentHotels.map((hotel,index) => (
                           <li key={hotel.id} className="itemsListCard">
-                            <div className='d-flex flex-row justify-content-start '>
+                            <div className='d-sm-flex flex-sm-column d-md-flex flex-md-row justify-content-md-start '>
                               {hotel.images && hotel.images.length > 0 ? (
                                 <div>
                                   {hotel.images.map((image) => (
@@ -340,27 +342,30 @@ function HotelListPage() {
                                       key={image._id}
                                       src={image.image_urls}
                                       alt={`Image of ${image.hotel_name}`}
-                                      style={{ width: "200px", height: "160px" }}
+                                      className='hotelImg'
+                                      
                                     />
                                   ))}
                                 </div>
                               ) : (
                                 <p>No images available for this hotel.</p>
                               )}
-                              <div className='m-3 w-100'>
-                                <div className='d-flex flex-row p-1'>
+                              <div className='p-3 w-100'>
+                                <div className='d-sm-flex flex-sm-row justify-content-sm-start d-md-flex flex-md-row justify-content-md-between '>
                                   <h3 className='hotelName'> {truncateText(hotel.name,50)}</h3>
-                                  <ul className='star'>
-                                    {hotel.rating && hotel.rating.length > 0 ? (
-                                      <li>
-                                        {Array.from({ length: hotel.rating[0].star_count }).map((_, index) => (
-                                          <FontAwesomeIcon icon={faStar} key={index} style={{ color: 'gold', width: '12px' }} />
-                                        ))}
-                                      </li>
-                                    ) : (
-                                      <li>No rating information available for this hotel.</li>
-                                    )}
-                                  </ul>
+                                  <div className='d-sm-flex flex-sm-row'>
+                                    <ul className='star'>
+                                      {hotel.rating && hotel.rating.length > 0 ? (
+                                        <li>
+                                          {Array.from({ length: hotel.rating[0].star_count }).map((_, index) => (
+                                            <FontAwesomeIcon icon={faStar} key={index} className="hotelRating"  />
+                                          ))}
+                                        </li>
+                                      ) : (
+                                        <li>No rating information available for this hotel.</li>
+                                      )}
+                                    </ul>
+                                  </div>
                                 </div>
                                 <div className='d-flex flex-row justify-content-start'>
                                   <FontAwesomeIcon icon={faLocationDot} style={{ color: 'rgb(116, 115, 115)', margin: '4px' }} />
@@ -389,7 +394,8 @@ function HotelListPage() {
                       onPageChange={handlePageChange}
                     
                     />
-                </div>
+                      </div>
+                  </div>
                 </div>
               </div>
             

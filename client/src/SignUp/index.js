@@ -152,18 +152,37 @@ function SignUp() {
             Sign Up
           </button>
 
-          <div className="google-signin">
+          <div className="google-signin d-none d-md-block">
           <GoogleOAuthProvider clientId="172944422596-inm0mj3q4i7v0fbquv3nv9j5u9fv2j6d.apps.googleusercontent.com">
-            <GoogleLogin
-              onSuccess={responseGoogle}
-              onError={() => {
-                console.log('Login Failed');
-              }}
-             
-              width='310px'
-              />
-          </GoogleOAuthProvider>
+          <GoogleLogin
+            onSuccess={responseGoogle}
+            onError={() => {
+              console.log('Login Failed');
+            }}
+            border="none"       
+            
+            shadow="none"      
+             width="305px"
+            className="google-signin-button"
+          />
+        </GoogleOAuthProvider>
+        
         </div>
+        <div className="google-signin d-block d-md-none">
+        <GoogleOAuthProvider clientId="172944422596-inm0mj3q4i7v0fbquv3nv9j5u9fv2j6d.apps.googleusercontent.com">
+        <GoogleLogin
+          onSuccess={responseGoogle}
+          onError={() => {
+            console.log('Login Failed');
+          }}
+          border="none"       
+          
+          shadow="none"      
+           width="290px"
+          className="google-signin-button"
+        />
+      </GoogleOAuthProvider>
+      </div>
       
         </form>
       </div>

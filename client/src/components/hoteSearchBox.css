@@ -3,15 +3,265 @@
     border-radius: 10px;
     margin: 20px auto;
     width: 100%;
-    height: 120px;
+    height: 100px;
+   /* height: 100%; */
   }
   .hotelBookingBox{
-    border: solid;
+    /* border: solid;
     border-width: 1px;
     border-top-right-radius: 5px;
     border-bottom-left-radius: 5px;
     border-color: rgb(197, 196, 196);
     padding: 10px;
     border-bottom: none;
-    margin-top: 0px;
+    margin-top: 0px; */
   }
+  
+  /* Center the toast container */
+.custom-toast-container {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.suggestionBox {
+  position:absolute;
+  width: 350px;
+  max-height: 200px; /* Adjust the maximum height as needed */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  z-index: 1;
+  margin-top: 80px;
+  overflow-y: auto;
+}
+
+.suggestionBox ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  
+}
+
+.suggestionBox li {
+  
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.suggestionBox li:hover {
+  background-color: #f5f5f5;
+}
+
+.suggestionBox hr {
+  margin: 0px;
+  border: none;
+  border-top: 1px solid #ccc;
+}
+.selected-suggestion{
+  background-color: #f5f5f5;
+}
+.hotelFeatures{
+  height: 100%;
+  margin-bottom: 10px;
+  display: block;
+}
+.modal-content  {
+  position:absolute;
+  margin-top:5px;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1;  
+  width: 300px;
+}
+
+/* .hotelCard{
+  background-color: white;
+  border-radius: 10px;
+  margin-top: 30px;
+} */
+/* .btnUnclicked{
+  border: solid;
+  border-radius: 5px;
+  border-color: #007bff;
+  border-width: 1px;
+  background-color: transparent;
+  padding: 5px;
+  height: 45px;
+  margin: 10px;
+  color: #007bff;
+  padding-left: 10px;
+} */
+/* .btnclicked{
+ color: white;
+ background-color: #007bff;
+} */
+.icons{
+  width: 25px;
+  height: 25px;
+  margin: 15px;
+}
+
+.inputBox{
+  border: solid;
+  border-color: rgb(184, 183, 181);
+  border-radius: 5px;
+  border-width: 1px;
+  width: 300px;
+  height: 55px;
+  margin-top: 20px;
+  margin-right: 10px;
+}
+.inputSearchBox{
+  border: solid;
+  border-color: rgb(184, 183, 181);
+  border-radius: 5px;
+  border-width: 1px;
+  width: 350px;
+  height: 55px;
+  margin-top: 20px;
+  margin-right: 10px;
+}
+.inputBoxDate{
+  border: solid;
+  border-color: rgb(184, 183, 181);
+  border-radius: 5px;
+  border-width: 1px;
+  width: 200px;
+  height: 55px;
+  margin-top: 20px;
+  margin-right: 10px;
+}
+
+.inputData{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: rgb(145, 139, 139);
+  font-weight: 600;
+  margin-left:5px;
+  padding-top: 1px;
+}
+
+.inputField{
+  outline: none;
+  border: none;
+  margin-left: 7px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  margin-top: -5px;
+  background-color: none;
+}
+.searchInput{
+  outline: none;
+  border: none;
+  margin-left: 7px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  margin-top: -5px;
+  background-color: none;
+  width: 280px;
+  margin-top: 15px;
+}
+.customDatePicker{
+  outline: none;
+ 
+  margin:0px;
+  width: 120px;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  margin-left: 10px;
+  margin-top: -35px;
+}
+.unOrder {
+  list-style: none; /* Remove the bullets from the ul */
+  margin:10px; /* Remove default margin */
+  padding: 0px;
+}
+
+
+.openIcon{
+  width: 30px;
+  height: 30px;
+  margin: 10px;
+  margin-top: 15px;
+  
+}
+.bookingBtn{
+  background-color: #4d9bf0;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  width: 100px;
+  height: 50px;
+  color: white;
+  font-size: 16px;
+  font-weight: 550;
+  margin-top: 22px;
+  transition: background-color 0.2s;
+}
+.bookingBtn:hover {
+  background-color: #007bff;
+  transform: scale(1.03);
+}
+
+/* Additional styles when activeBtn is "hotel" */
+.homeSection1.active-hotel {
+/* Your styles when activeBtn is "hotel" here */
+background-image: none !important;
+padding: 0px;
+margin: 0px;
+}
+
+/* Center the toast container */
+.custom-toast-container {
+position: fixed;
+top: 20%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+
+
+/* Mobile-specific styles for */
+@media (max-width: 767px) {
+  .hotelInputCard{  
+    background-color: transparent; 
+    margin:10px auto ; 
+    width: 100%;
+    height: 100%;
+    padding: 15px; 
+    box-shadow: 0px 1px 2px #888888;
+  }
+  .inputSearchBox{
+    width: 100%;
+  }
+  .searchInput{
+    width:65vw;
+ 
+    margin-left: 0px;
+   
+    margin-top: 15px;
+  }
+  .inputBoxDate{
+    width: 100%;
+  }
+  .suggestionBox {    
+    width: 74vw;  
+  }
+  .inputBox{
+    width: 100%;
+  }
+  .bookingBtn{
+    width: 100%;
+    font-size: 18px;
+  }
+}
+
+/* Tablet-specific styles for  */
+@media (min-width: 768px) and (max-width: 1023px) {
+  
+}
+
+
+

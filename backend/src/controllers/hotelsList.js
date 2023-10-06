@@ -71,7 +71,9 @@ router.get('/search', async (req, res, next) => {
     ]).toArray();
 
     if (hotelsWithImages.length === 0) {
+      console.log(res.status(404).json({ message: `No hotels available for the city: ${city || 'No city specified'}.` }))
       return res.status(404).json({ message: `No hotels available for the city: ${city || 'No city specified'}.` });
+     
     }
 
     // Check room availability for each hotel
@@ -101,7 +103,8 @@ router.get('/search', async (req, res, next) => {
       hotel.number_of_rooms_available = hotel.number_of_rooms - bookedRooms;
     }
 
-    // Return the response
+    // Return the responseho
+    console.log(hotelsWithImages)
     res.json(hotelsWithImages);
   } catch (error) {
     next(error); // Pass the error to the error handling middleware

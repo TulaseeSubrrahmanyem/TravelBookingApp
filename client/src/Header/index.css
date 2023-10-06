@@ -1,72 +1,77 @@
-
-.navBar{
-   margin: 20px auto;
-   padding: 0px;
-   height: 40px;
-}
-.navbar-brand img {
-  
-  margin-left: 0px;
-  margin-right: 30px; /* Adjust the distance between the logo and text */
+/* Default styles for the Navbar */
+.navBar {
+  padding: 0px;
+  height: 75px;
+  border-color: #f8f9fa;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
 }
 
-.nav-link {
-  font-weight: 600; /* Set the font weight to bold */
-  color: rgb(32, 30, 30); /* Set the text color to black */
-  font-size:16px;
+/* Navbar links and buttons */
+.nav-link,
+.loginBtn,
+.signupBtn {
+  font-weight: 600;
+  color: rgb(32, 30, 30);
+  font-size: 16px;
   font-family: "Roboto", sans-serif;
   margin-right: 25px;
-  position: relative; /* Add relative positioning */
+  position: relative;
+  text-decoration: none; /* Remove underlines from links */
 }
-
-
+.nav-row{
+  display: flex;
+}
 .nav-link::after {
   content: "";
   position: absolute;
-  bottom: -18px; /* Adjust the distance of the underline from the text */
-  left: 50%; /* Move the underline to the center */
-  transform: translateX(-50%); /* Center the underline */
-  width:55px; /* Reduce the width of the underline */
-  height: 3px; /* Set the height of the underline */
-  background-color: transparent; /* Set the initial color of the underline */
-  transition: background-color 0.2s ease; /* Add a smooth transition effect */
+  bottom: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 55px;
+  height: 3px;
+  background-color: transparent;
+  transition: background-color 0.2s ease;
 }
 
 .nav-link:hover::after,
 .nav-link.active::after {
-  background-color: #007bff; /* Set the color of the underline on hover and active */
+  background-color: #007bff;
 }
-.nav-link.active{
-  color: #007bff !important; /* Set the text color of the active link */
+
+.nav-link.active {
+  color: #007bff !important;
 }
-.nav-link:hover{
-  color:#007bff !important;
+
+.nav-link:hover {
+  color: #007bff !important;
 }
+
 /* Signup Button */
 .signupBtn {
-  width: 130px; /* Set the width to 250px */
-  height: 40px; /* Set the height to 40px */
-  
-  background-color: #4d9bf0; 
+  width: 130px;
+  height: 40px;
+  background-color: #4d9bf0;
   border: none;
   color: #fff;
   border-radius: 5px;
   padding: 10px;
   font-size: 16px;
   font-weight: 500;
-  cursor: pointer; /* Add a cursor pointer on hover for better user interaction */
+  cursor: pointer;
   transition: background-color 0.2s;
 }
+
 .signupBtn:hover {
   background-color: #007bff;
   transform: scale(1.03);
 }
+
 /* Login Button */
 .loginBtn {
-  width: 100px; /* Set the width to 250px */
-  height: 37px; /* Set the height to 40px */
+  width: 100px;
+  height: 37px;
   padding: 5px;
-  margin-top:2px;
+  margin-top: 2px;
   border: 2px solid;
   border-color: #007bff;
   outline-color: #007bff;
@@ -75,29 +80,136 @@
   color: #007bff;
   font-size: 16px;
   font-weight: 500;
-  cursor: pointer; /* Add a cursor pointer on hover for better user interaction */
+  cursor: pointer;
   transition: background-color 0.2s;
 }
+
 .loginBtn:hover {
- 
   transform: scale(1.03);
 }
+
+/* Horizontal line separator */
 .hrLine {
   width: 100%;
   margin-top: 0;
   margin-bottom: 0;
   border-color: rgb(0, 0, 0);
   border-width: 1px;
- 
 }
-.profileBtn{
-  background-color: #f8f9fa;
+
+/* Profile button */
+.profileBtn {
+  background-color:#f8f9fa;
   border: none;
-  color:#007bff;
+  color: #007bff;
   width: 40px;
   height: 40px;
   border-radius: 50%;
   font-size: 18px;
   font-weight: 600px;
   text-align: center;
+}
+.profileNav{
+  background-color: transparent;
+  margin-left:5px;
+  margin:10px;
+}
+/* Mobile and Tablet Styles */
+@media (max-width: 768px) {
+  /* Reduce Navbar height and adjust padding */
+  .navBar {
+   width: 100%;
+   padding: 0px;
+  }
+
+  /* Center the logo vertically */
+  .navbar-brand img {
+    margin-top: 5px; /* Adjust as needed */
+  }
+  .nav-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; 
+    margin: 5px 0;
+  }
+  
+  /* Adjust Navbar links margin and font size */
+  .nav-link {
+    font-size: 14px;  
+    padding: 15px;
+    flex: 1; /* Each nav-link takes an equal portion of the row's width */
+    max-width: calc(50% - 10px);
+    margin: 0px; /* Add margin to create space between items */
+    text-align: center;
+    
+    background-color: #f8f9fa;
+  }
+
+  /* Adjust Navbar link underline position */
+  .nav-link::after {
+   content: none;
+  }
+.menuIcon{
+  color: #007bff;
+}
+.profileBtn {
+ background-color:#f8f9fa;
+  border: none;
+  color: #007bff;
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+  font-size: 18px;
+  font-weight: 700px;
+  text-align: center;
+}
+
+  .navbar-nav {
+    margin: 5px;
+    padding: 5px;
+    background-color:#f8f9fa;
+    border-radius: 100%;
+    margin-right: 0px;   
+  }
+ 
+
+  .loginBtn,
+  .signupBtn{
+    width: 100%;
+    margin-right:0px;
+    margin: 6px;
+
+  }
+
+  .buttonsFlex{
+    display: flex;
+    
+  }
+  .navbar-toggler-icon {
+  
+    height: 20px;
+    font-size: 15px;
+    padding-right:30px auto;
+   
+   }
+  
+   #responsive-navbar-nav {
+    background-color:#f8f9fa;
+    margin-top: 20px;
+    
+  }
+  .navbar-toggler:focus {
+    outline: none; /* Remove the default outline */
+    border:solid 2px; /* Set the border color on focus */
+    box-shadow: none; /* Remove any box shadow on focus */
+  
+  } 
+  .profileNav{
+    background-color:none;
+    margin-left:55px;
+    /* margin:10px; */
+  }
+  .custom-tooltip{
+    background-color: transparent;
+  }
 }

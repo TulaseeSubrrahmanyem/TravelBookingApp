@@ -77,3 +77,25 @@
     font-weight: 550;
     text-align: left;
 }
+.taxtesDetails{
+    color:#ffffff !important;
+     font-size:14px !important;
+     /* font-weight: 400;    */
+     margin-left: 170px;
+    opacity: 1;
+}
+@media (max-width: 767px){
+    .bookingDetailsCard {
+       
+    border-radius: 10px;
+      margin: 10px;
+        padding: 0px;
+        width:95%; 
+    }
+   .bodypart{
+    padding: 10px;
+   }
+   .taxtesDetails{
+      margin-left:160px
+  }
+}

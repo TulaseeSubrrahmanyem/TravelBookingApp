@@ -79,6 +79,7 @@ const BookingDetailsCard = ({
                     <p>No images available for this hotel.</p>
                   )}
                 </div>
+              <div className='bodypart'>
                 <div>
                   <p>Check-In Date : <span style={{marginRight:"50px",color:"#fff",fontWeight:'500'}}>{formattedCheckInDate}</span></p>
                   <p>Check-Out Date : <span style={{marginRight:"50px",color:"#fff",fontWeight:'500'}}>{formattedCheckOutDate}</span></p>                 
@@ -103,7 +104,7 @@ const BookingDetailsCard = ({
                           // Assuming you want to display tax information for a room type with the name 'Business Double or Twin Room'
                           price.rooms.find((room) => room.Roomtype === hotelName) ? (
                             <div>
-                              <p style={{fontSize:"14px",color:"#fff",marginLeft:"180px"}}>
+                              <p className="taxtesDetails" >
                                 + ₹ {price.rooms.find((room) => room.Roomtype === hotelName)['Taxes and Fees'].replace(/\D/g, '')}  Taxes and Charges
                               </p>
                               {/* Add the tax amount to the total */}
@@ -125,16 +126,17 @@ const BookingDetailsCard = ({
                     <p>No price information available for this hotel.</p>
                   )}
                 </div>
+                </div>
               </li>
             ))}
           </ul>
         ) : (
           <div><p>No Data Available</p></div>
         )}
-       </div>
+       </div>       
+      
     </div>
- //   </div>
- //   </div>
+ 
   );
 };
 

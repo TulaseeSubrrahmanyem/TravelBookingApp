@@ -84,8 +84,7 @@
       console.log("Search button clicked")
       setIsLoading(true); // Show loading indicator
       try {
-        setIsLoading(true);
-  
+         
         if (!city) {
           const errorMessage = 'Please enter a city.';
           setErrorMessage(errorMessage);
@@ -152,7 +151,7 @@
         setRoom(room + 1);
       }
     }, [adults, children, room]);
-  
+    
     const decrementTravelers = useCallback((type) => {
       if (type === 'adults' && adults > 1) {
         setAdults(adults - 1);
@@ -162,7 +161,7 @@
         setRoom(room - 1);
       }
     }, [adults, children, room]);
-  
+    
     const totalPersons = useMemo(() => adults + children, [adults, children]);
     const totalRooms = room;
   
@@ -218,12 +217,14 @@
     }, []);
   
     return (
-      <div>
+       <div className='container'>
+       <div className='row '>
         <div className='hotelInputCard'>
           <div className='hotelBookingBox'>
-            <div className='d-flex flex-row justify-content-center'>
-              <div className='d-flex flex-column'>
-                <div className='d-flex flex-row justify-content-between inputBox' style={{ width: "350px" }}>
+            <div className='d-sm-flex flex-sm-column  justify-content-sm-center align-item-sm-center d-md-flex flex-md-row'>
+             {/*search hotel */}  
+            <div className='d-flex flex-column '>
+                <div className='d-flex flex-row justify-content-between  inputSearchBox'>
                   <LocationOn className='icons' />
                   <div className='d-flex flex-column justify-content-start '>
                     <input
@@ -231,16 +232,16 @@
                       id="departure"
                       value={city}
                       placeholder='Search Location'
-                      className='inputField'
+                      className='searchInput'
                       onChange={handleInputChange}
                       onKeyDown={handleKeyDown}
-                      style={{ width: "280px", marginTop: "15px" }}
+                     
                       autoComplete="off"
                     />
                   </div>
                 </div>
                 {city && suggestions.length > 0 && (
-                  <div className='suggestionBox'>
+                  <div className='suggestionBox '>
                     <ul>
                       {suggestions.map((suggestion, index) => (
                         <li
@@ -260,50 +261,54 @@
                   </div>
                 )}
               </div>
-              <div className='inputBoxDate'>
-                <div className='d-flex flex-column m-0'>
-                  <div className='d-flex flex-row justify-content-around'>
-                    <BsCalendar2 style={{ width: "12px", height: "12px", marginTop: "9px" }} />
-                    <h1 className='inputData' style={{ margin: "0px", marginTop: "7px" }}> Check in Date </h1>
+              {/*dates booking */}
+           
+                <div className='inputBoxDate '>
+                  <div className='d-flex flex-column justify-content-evenly'>
+                    <div className='d-flex flex-row justify-content-start '>
+                      <BsCalendar2 style={{ width: '15px', height: '15px', marginTop: '5px', marginLeft: '10px', marginRight: '10px' }}/>
+                      <h1 className='inputData' style={{marginTop:"3px",marginBottom:"0px"}}> Check in Date </h1>
+                    </div>
+                    <DatePicker
+                      selected={checkIn}
+                      onChange={(date) => {
+                        updateCheckIn(date);
+                      }}
+                      className="customDatePicker"
+                      minDate={new Date()}
+                      dateFormat="dd/MM/yyyy"
+                    />
                   </div>
-                  <DatePicker
-                    selected={checkIn}
-                    onChange={(date) => {
-                      updateCheckIn(date);
-                    }}
-                    className="customDatePicker"
-                    minDate={new Date()}
-                    dateFormat="dd/MM/yyyy"
-                  />
                 </div>
-              </div>
-              <div className=' inputBoxDate'>
-                <div className='d-flex flex-column m-0'>
-                  <div className='d-flex flex-row justify-content-around '>
-                    <BsCalendar2 style={{ width: "12px", height: "12px", marginTop: "9px", }} />
-                    <h1 className='inputData' style={{ margin: "0px", marginTop: "7px" }}> Check out Date </h1>
+                <div className=' inputBoxDate'>
+                  <div className='d-flex flex-column justify-content-evenly m-0'>
+                    <div className='d-flex flex-row justify-content-start '>
+                      <BsCalendar2 style={{ width: '15px', height: '15px', marginTop: '5px', marginLeft: '10px', marginRight: '10px' }} />
+                      <h1 className='inputData' style={{marginTop:"3px",marginBottom:"0px"}}> Check out Date </h1>
+                    </div>
+                    <DatePicker
+                      selected={checkOut}
+                      onChange={(date) => {
+                        updateCheckOut(date);
+                      }}
+                      minDate={new Date()}
+                      dateFormat="dd/MM/yyyy"
+                      className="customDatePicker"
+                    />
                   </div>
-                  <DatePicker
-                    selected={checkOut}
-                    onChange={(date) => {
-                      updateCheckOut(date);
-                    }}
-                    minDate={new Date()}
-                    dateFormat="dd/MM/yyyy"
-                    className="customDatePicker"
-                  />
                 </div>
-              </div>
-              <div className="inputBox" style={{ width: "300px" }}>
+         
+              
+              <div className="inputBox col-12" >
                 <div className="d-flex flex-row justify-content-around">
-                  <div className="d-flex">
+                  <div className="d-flex ">
                     <BsPersonAdd className="icons" />
-                    <h1 className="inputData mt-4">Travelers {totalPersons} Room {totalRooms}</h1>
+                    <h1 className="inputData" style={{marginTop:"20px"}}>Travelers {totalPersons} Room {totalRooms}</h1>
                     <MdOutlineArrowDropDown className='openIcon' onClick={openModalBox} />
                   </div>
                 </div>
                 {ismodalOpen && (
-                  <div className='modal-content' style={{ width: "295px", top: "95px" }}>
+                  <div className='modal-content col-sm-12' >
                     <ul className='unOrder'>
                       <li>
                         <div className='d-flex flex-row justify-content-around'>
@@ -320,7 +325,7 @@
                       <li>
                         <div className='d-flex flex-row justify-content-around'>
                           <div className="d-flex ">
-                            <p style={{ fontFamily: "Arial", fontSize: "14px", fontWeight: "600" }}> Adults<br />2 - 11</p>
+                            <p style={{ fontFamily: "Arial", fontSize: "14px", fontWeight: "600" }}> Adults<br />+12</p>
                           </div>
                           <div className='d-flex flex-row mt-2'>
                             <AiOutlineMinusCircle onClick={() => decrementTravelers('adults')} style={{ width: "20px", height: "20px", margin: "5px" }} />
@@ -332,7 +337,7 @@
                       <li>
                         <div className='d-flex flex-row justify-content-around'>
                           <div className="d-flex ">
-                            <p style={{ fontFamily: "Arial", fontSize: "14px", fontWeight: "600" }}>Children<br />-2</p>
+                            <p style={{ fontFamily: "Arial", fontSize: "14px", fontWeight: "600" }}>Children<br />2 - 11</p>
                           </div>
                           <div className='d-flex flex-row mt-2'>
                             <AiOutlineMinusCircle onClick={() => decrementTravelers('children')} style={{ width: "20px", height: "20px", margin: "5px" }} />
@@ -345,11 +350,12 @@
                   </div>
                 )}
               </div>
-              <button className='bookingBtn' onClick={searchHotels}>  {isLoading ? 'Searching...' : 'Search'}</button>
+              <button className='bookingBtn col-sm-12' onClick={searchHotels}>  {isLoading ? 'Searching...' : 'Search'}</button>
             </div>
           </div>
         </div>        
         <ToastContainer position='top-center' autoClose={3000} />
+      </div>
       </div>
     );
   }

@@ -1,11 +1,18 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.css';
-
+import './index.css';
+import FlightSearchBox from '../components/flightSearchBox.js';
+// import FlightFeatures from '../components/flightFeatures';
 function Flight() {
   return (
-    <div>
-      <h1>Welcome to Flight Booking</h1>
+  
+    <section className='' >
+    <div className='flightSection' >
+     <div className="flightSearchBox">
+        <FlightSearchBox/>
+     </div>
     </div>
+    
+   </section>
   );
 }
 

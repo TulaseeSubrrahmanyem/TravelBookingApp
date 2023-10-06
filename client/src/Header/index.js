@@ -8,7 +8,10 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 import Tooltip from '@mui/material/Tooltip';
+import MenuIcon from '@mui/icons-material/Menu';
 import './index.css';
+import IconButton from '@mui/material/IconButton';
+//import NavbarToggle from 'react-bootstrap/esm/NavbarToggle';
 function Header() {
   const [token, setToken] = useContext(store);
   const navigate = useNavigate();
@@ -59,46 +62,41 @@ function Header() {
 
   const renderAuthButtons = () => {
     if (token) {
-      if (token.startsWith('G_ENABLED_IDPS')) {
+      if (token.startsWith('jwtSecrete')) {
         // User logged in with Google
         return (
-          <div className='d-flex flex-row '>
-            <Button className="me-5 loginBtn" onClick={handleLogout}>
-              Logout
-            </Button>
+        
             <Tooltip title="My Profile" arrow className="custom-tooltip">
-              <Button className="me-5 profileBtn" onClick={profileBtn}>
+              <button className=" profileBtn" onClick={profileBtn}>
                 {firstLetter}
-              </Button>
+              </button>
             </Tooltip>
-          </div>
+         
         );
       } else {
         // User logged in with your application's credentials
         return (
-          <div className='d-flex flex-row '>
-            <Button className="me-5 loginBtn" onClick={handleLogout}>
-              Logout
-            </Button>
-            <Tooltip title="My Profile" arrow className="custom-tooltip">
-              <Button className="me-5 profileBtn" onClick={profileBtn}>
+           <Tooltip title="My Profile" arrow className="custom-tooltip">
+              <Button className=" profileBtn" onClick={profileBtn}>
                 {firstLetter}
               </Button>
-            </Tooltip>
-          </div>
+           </Tooltip>
+         
         );
       }
     } else {
       // User is not logged in
       return (
-        <Nav>
-          <Button className="me-5 loginBtn" onClick={handleLoginClick}>
-            Login
-          </Button>
-          <Button className="signupBtn" onClick={handleSignUpClick}>
-            Sign Up
-          </Button>
-        </Nav>
+        <Nav className='buttonsFlex w-100'>
+        <div className="d-flex flex-sm-column flex-lg-row align-items-center w-100"> {/* Use a flex column */}
+            <Button className=" loginBtn" onClick={handleLoginClick}>
+              Login
+            </Button>
+            <button className="signupBtn" onClick={handleSignUpClick}>
+              Sign Up
+            </button>                    
+        </div>
+      </Nav>
       );
     }
   };
@@ -107,35 +105,80 @@ function Header() {
 
   return (
     <>
-      {showHeader && (
-        <Navbar collapseOnSelect expand="lg" bg="white" variant="light" className="navBar">
-          <Container>
-          <Link to="/">
-          <Navbar.Brand>
-            <img src="../images/logo_2.png" alt="Logo" height="50" className="d-inline-block align-top" />
-          </Navbar.Brand>
-          </Link>
-            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-            <Navbar.Collapse id="responsive-navbar-nav">
-              <Nav className="me-auto">
-                <NavLink to="/hotel" className="nav-link" activeClassName="active">
-                  Hotel
-                </NavLink>
-                <NavLink to="/flight" className="nav-link" activeClassName="active">
-                  Flight
-                </NavLink>
-                <NavLink to="/about" className="nav-link" activeClassName="active">
-                  About
-                </NavLink>
-                <NavLink to="/offers" className="nav-link" activeClassName="active">
-                  Offers
-                </NavLink>
-              </Nav>
-              <Nav>{renderAuthButtons()}</Nav>
-            </Navbar.Collapse>
-          </Container>
-        </Navbar>
-      )}
+     
+       
+        {showHeader && (
+          <Navbar collapseOnSelect expand="lg" bg="white" variant="light" className="navBar" sticky='top'>
+            <Container>
+              <Link to="/">
+                <Navbar.Brand>
+                  <img src="../images/logo_2.png" alt="Logo" height="50" className="d-inline-block align-top" />
+                </Navbar.Brand>
+              </Link>
+              {token ? (
+                <>
+               
+                  <Nav className="d-lg-none d-block profileNav" >{renderAuthButtons()}</Nav>
+                            
+                  <Navbar.Toggle aria-controls="responsive-navbar-nav"  class="navbar-toggler"  />
+             
+                  <Navbar.Collapse id="responsive-navbar-nav" >
+                  <Nav className="me-auto">
+                  <div className="nav-row ">
+                    <NavLink to="/hotel" className="nav-link" activeClassName="active">
+                      Hotel
+                    </NavLink>
+                    <NavLink to="/flight" className="nav-link" activeClassName="active">
+                      Flight
+                    </NavLink>
+                  </div>
+                  <div className="nav-row">
+                    <NavLink to="/about" className="nav-link" activeClassName="active">
+                      About
+                    </NavLink>
+                    <NavLink to="/offers" className="nav-link" activeClassName="active">
+                      Offers
+                    </NavLink>
+                  </div>
+                </Nav>
+               
+                     {/* Display profile button first on small screens (mobile) */}
+                   <Nav className="d-lg-block d-none ml-auto">{renderAuthButtons()}</Nav>
+                  
+                  </Navbar.Collapse>
+                 
+                </>
+              ) : (
+                <>
+                  <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                  <Navbar.Collapse id="responsive-navbar-nav">
+                  <Nav className="me-auto">
+                  <div className="nav-row">
+                    <NavLink to="/hotel" className="nav-link" activeClassName="active">
+                      Hotel
+                    </NavLink>
+                    <NavLink to="/flight" className="nav-link" activeClassName="active">
+                      Flight
+                    </NavLink>
+                  </div>
+                  <div className="nav-row">
+                    <NavLink to="/about" className="nav-link" activeClassName="active">
+                      About
+                    </NavLink>
+                    <NavLink to="/offers" className="nav-link" activeClassName="active">
+                      Offers
+                    </NavLink>
+                  </div>
+                </Nav>
+                  
+                      <Nav>{renderAuthButtons()}</Nav>
+                   
+                  </Navbar.Collapse>
+                </>
+              )}
+            </Container>
+          </Navbar>
+        )}
       <hr className="hrLine" />
     </>
   );

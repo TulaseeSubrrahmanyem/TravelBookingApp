@@ -357,10 +357,10 @@ const MyDashboard = () => {
   };
   
   return (
-    <div className='myProfile d-flex flex-row justify-content-start '>
+    <div className='myProfile d-sm-flex d-sm-column d-md-flex flex-md-row justify-content-md-start '>
     <div className='d-flex flex-column mt-3'>
     <div>
-    <div className='userCard'>
+    <div className='userCard '>
         <AccountCircleIcon style={{ color: 'lightgray', fontSize: '50px', marginTop: '30px' }} />
         <h3 className='userName'>{userName}</h3>
         <p style={{ fontSize: '15px' }}>Welcome Back</p>
@@ -425,11 +425,11 @@ const MyDashboard = () => {
    </div>
      </div>    
       </div>
-      <div className='col-9'>
-      {/* */}
+      <div className='col-md-9'>
+      {/* dashboard*/}
         <div className={`w-100 ${isDashboardOpen ? 'dashboardCard' : ''}`}>
         {isDashboardOpen && (
-          <div className='d-flex flex-row'>
+          <div className='d-sm-flex d-sm-column d-md-flex flex-md-row'>
           <div className='noOfCount '>
             <LocalMallOutlinedIcon style={{ fontSize: '50px', margin: '5px', color: "rgb(65, 64, 64)" }} />
             <h6>Total Bookings</h6>
@@ -451,7 +451,7 @@ const MyDashboard = () => {
               <h2>Bookings</h2>
               <hr />
             </div>
-            <div className='d-flex flex-row justify-content-between'>
+            <div className='d-md-flex flex-md-row justify-content-md-between'>
               <label htmlFor="itemsPerPage">
                 Show
                 <select id="itemsPerPage" onChange={handleItemsPerPageChange} value={itemsPerPage} style={{ margin: "4px" }}>
@@ -563,7 +563,7 @@ const MyDashboard = () => {
           <>
             <h1 className='profileHead'>My Profile</h1>
             <form className='profileForm' onSubmit={handleProfileSubmit}>
-            <div className='d-flex flex-row justify-content-between'>
+            <div className='d-md-flex flex-md-row justify-content-md-between'>
               <div className='m-2 w-100 mr-2'>
                 <label htmlFor='username' className='inputLabel'>
                   Name
@@ -594,7 +594,7 @@ const MyDashboard = () => {
               </div>
             </div>
           
-            <div className='d-flex flex-row'>
+            <div className='d-md-flex flex-md-row'>
               <div className='m-2 w-100 phoneNumber'>
                 <label htmlFor='phoneNumber' className='inputLabel'>
                   Phone Number

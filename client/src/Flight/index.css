@@ -1,0 +1,38 @@
+.flightSection{
+    background: url("/public/images/indiaMap.png"); /* Correct path */
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 250px;
+    z-index: 1;
+    /* margin: 50px auto; */
+    padding: 50px;
+}
+.flightSearchBox{
+    margin-top: 30px;
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 10px;
+    border: none;
+}
+ 
+/* Mobile-specific styles for */
+@media (max-width: 767px) {
+    .flightSection{
+      padding: 20px;
+      margin-bottom: 460px;
+    }
+    .flightSearchBox{
+        margin-top: 70px;
+        margin-bottom: 550px;
+        box-shadow: 0px 1px 2px #888888;
+    }
+  }
+  
+  /* Tablet-specific styles for  */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    
+  }
+  
+  
+  
+  

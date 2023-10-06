@@ -7,6 +7,7 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  /* margin-bottom: 200px; */
 }
 
 .userCard {
@@ -16,10 +17,13 @@
   padding: 10px;
   border-radius: 5px;
   margin-right: 10px; /* Adjust the margin here */
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Add a shadow for better separation */
-}
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  display: flex ;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-/* Rest of your CSS remains the same */
+}
 
   
   .userName {
@@ -78,7 +82,7 @@
     margin: 10px;
     padding: 20px;
     width: 1240px; /* Add this line to ensure full width */
-    box-sizing: border-box; /* Include padding and border in the width calculation */
+    /* box-sizing: border-box;  */
     
   }
   
@@ -192,4 +196,88 @@
 }
 .UptadeBtn:hover{
   transform: scale(1.02); /* Scale the button to 110% on hover */
+}
+@media (max-width: 767px){
+  .myProfile {
+    background-color: #f8f9fa;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 200px;
+    /* margin: 0px; 
+    padding: 0px; */
+  }
+  .userCard {
+    background-color: #fff;
+    width: 100%;
+    height: 180px;
+    padding: 10px;  
+  }
+  .optionBar {
+    background-color: #fff;
+    width: 100%;
+    height: 210px;
+   
+  }
+  .dashboardCard {
+    width: 100%;
+    height:100%;
+    margin: 0px;
+    padding: 10px auto;
+    padding-left: 0px;
+    /* box-sizing:content-box; */
+  }
+  .noOfCount h6{
+    font-size: 22px;
+    font-weight: 600;
+    margin-top: 5px;
+  }
+  .noOfCount p{
+    font-size: 22px;
+    font-weight: 600;
+    color: rgb(65, 64, 64);
+    margin-top: 10px;
+  }
+   /* Hide certain table columns on mobile */
+   /* .tableDataBooking th:nth-child(1), .tableDataBooking td:nth-child(1) {
+    display: none;
+  }
+
+  .tableDataBooking th:nth-child(3), .tableDataBooking td:nth-child(3) {
+    display: none;
+  } */
+
+  /* Make the table scrollable horizontally */
+  .tableDataBooking {
+    overflow-x: auto;
+    display: block;
+  }
+
+  /* Style for table header on mobile */
+  .tableDataBooking thead {
+    display: none;
+  }
+
+  /* Style for table rows on mobile */
+  .tableDataBooking tbody {
+    display: block;
+  }
+
+  .tableDataBooking tr {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    padding: 10px;
+  }
+
+  .tableDataBooking td {
+    text-align: left;
+  }
+
+  /* .tableDataBooking td:before {
+    content: attr(data-label);
+    font-weight: bold;
+  } */
 }

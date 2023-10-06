@@ -24,8 +24,8 @@ function HotelRoomDetails() {
     <div className='hotelRoomDetails bg-light'>
       <div className='container'>
         <div className='row '>
-          <div className='d-flex flex-row justify-content-evenly'>
-          <a href="/hotel" style={{ color: '#007bff', textDecoration: 'none',margin:"20px",marginTop:"30px" }}>Home</a>
+          <div className='d-flex flex-row justify-content-evenly pt-5 pb-0 '>
+           <a href="/hotel" style={{ color: '#007bff', textDecoration: 'none',margin:"20px",marginTop:"30px" }}>Home</a>
           
              <button
               onClick={() => {
@@ -58,13 +58,13 @@ function HotelRoomDetails() {
                
                   <div className='detailsCard'>
                     <div key={room.id}>
-                      <div className='d-flex flex-row'>
+                      <div className='d-sm-flex flex-sm-column d-md-flex flex-md-row'>
                         <h3>{room.name}</h3>
-                        <ul className='star'>
+                        <ul className='star1'>
                           {room.rating && room.rating.length > 0 ? (
                             <li>
                               {Array.from({ length: room.rating[0].star_count }).map((_, index) => (
-                                <FontAwesomeIcon icon={faStar} key={index} style={{ color: 'gold', width: '12px' }} />
+                                <FontAwesomeIcon icon={faStar} key={index} className='hotelRating1' />
                               ))}
                             </li>
                           ) : (
@@ -81,8 +81,8 @@ function HotelRoomDetails() {
                       <div className='d-flex flex-row justify-content-start mt-4'>
                         {room.images.map((image, index) => (
                           <div key={image.hotel_id + index}>
-                            <div className='d-flex flex-row'>
-                              <div className=" d-flex flex-row">
+                            <div className='d-sm-flex flex-sm-column d-md-flex flex-md-row'>
+                              <div className="d-flex flex-row">
                                 {image.image_urls.slice(0, 1).map((img, i) => (
                                   <img
                                     key={`large-${image.hotel_id}-${i}`}
@@ -103,7 +103,8 @@ function HotelRoomDetails() {
                                     />
                                   ))}
                                 </div>
-                                <div>
+                                <div className='d-none  d-md-flex'>
+                                 <div>
                                   {image.image_urls.slice(3, 6).map((img, i) => (
                                     <img
                                       key={`small-${image.hotel_id}-${i}`}
@@ -113,7 +114,21 @@ function HotelRoomDetails() {
                                     />
                                   ))}
                                 </div>
+                                </div>                               
                               </div>
+                               {/*mobile */}
+                              
+                               <div className='d-flex flex-row d-md-none '>
+                                {image.image_urls.slice(3, 5).map((img, i) => (
+                                  <img
+                                    key={`small-${image.hotel_id}-${i}`}
+                                    src={img}
+                                    alt={`Image ${i + 1} of ${image.hotel_name}`}
+                                    className="small-images "
+                                  />
+                                ))}
+                              </div>
+                           
                             </div>
                           </div>
                         ))}
@@ -143,7 +158,7 @@ function HotelRoomDetails() {
                               {roomPrice.rooms.map((roomData, roomIndex) => (
                                <div className='roomPricesCard '>
                                 <table className="roomPriceTable">
-                                <thead className=''>
+                                <thead className='d-none d-md-block'>
                                   <tr className=' d-flex flex-row justify-content-around'>
                                     <th className='col-2 text-center'>Room Type</th>
                                     <th className=' col-2 text-center' style={{marginLeft:"55px",marginRight:"0px"}}>Travellers</th>
@@ -155,8 +170,8 @@ function HotelRoomDetails() {
                                 <tbody className=' pt-3'>
                                 <tr key={roomIndex}>
                                   <td>
-                                    <div className='d-flex flex-row justify-content-between'>
-                                      <div className='d-flex flex-column  mt-2 col-3 p-3'>
+                                    <div className='d-sm-flex d-sm-column d-md-flex flex-md-row justify-content-md-between'>
+                                      <div className='d-flex flex-column  mt-2 col-md-3 p-md-3'>
                                         <h3 className='roomTypeName'>{roomData.Roomtype}</h3>
                                         {/* Display other room price details here */}
                                         <ul>
@@ -178,9 +193,11 @@ function HotelRoomDetails() {
                                       
                                       {roomData["Number of Guests"].map((guests, guestIndex) => (
                                         <div key={guestIndex}>
-                                          <div className='d-flex flex-row justify-content-evenly '>
+                                     
+                                          <div className='d-md-flex flex-md-row justify-content-md-evenly '>
                                             {/* Number of guests */}
-                                            <div className='col-1 mt-4'>
+
+                                            <div className='col-md-1 mt-4 '>
                                               <ul className='d-flex flex-row'>
                                                 {Array.from({ length: guests }).map((_, iconIndex) => (
                                                   <li key={iconIndex}>
@@ -194,7 +211,7 @@ function HotelRoomDetails() {
                                             </div>
                                             <hr className="verticalLine"/>
                                             {/* Available offers */}
-                                            <div className='col-2  m-3'>
+                                            <div className='col-md-2  m-md-3 mb-2 '>
                                               {roomData["Available offers"] && roomData["Available offers"].length > 0 ? (
                                                 <ul>
                                                   {roomData["Available offers"].map((offer, offerIndex) => (
@@ -209,18 +226,19 @@ function HotelRoomDetails() {
                                               ) : (
                                                 <p>No available offers for this room.</p>
                                               )}
-                                            </div>
+                                            </div>                                       
                                             <hr className="verticalLine"/>
+                                        
                                             {/* Taxes and Fees */}
-                                            <div className='col-6 mt-2 pr-3'>
+                                            <div className='mt-sm-4 col-md-6 mt-md-2  '>
                                               <ul>
                                                 <li>
-                                                <div  className='d-flex flex-row justify-content-between w-75'>
-                                                  <div className='d-flex flex-column justify-content-start ml-3'>
+                                                <div  className='d-flex flex-row justify-content-evenly p-2 col-md-11'>
+                                                  <div className='d-flex flex-column justify-content-start ml-3 '>
                                                     <p style={{fontSize:"20px",fontWeight:"550",marginBottom:"0px",}}>{roomData.Price[guestIndex]}</p>
-                                                    <p style={{fontSize:"13px",marginTop:"0px",color:"#6d6e6e",fontWeight:"500"}}>{roomData['Taxes and Fees'] && `  ${roomData['Taxes and Fees']}`}</p>
+                                                    <p  className='rommTaxes'>{roomData['Taxes and Fees'] && `  ${roomData['Taxes and Fees']}`}</p>
                                                   </div>
-                                                  <div>
+                                                  <div className=''>
                                                      <button type='button' className='bookingButton' onClick={()=>{hotleBookingBtn(room,roomData.Roomtype ,room.city,room.name,roomData.Price[guestIndex])}}>Book Now</button>
                                                   </div>                                                  
                                                 </div>
