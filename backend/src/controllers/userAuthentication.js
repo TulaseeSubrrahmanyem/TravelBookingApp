@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const Registeruser = require('../models/userDetails');
 const middleware = require('../middleWares/authMiddleware.js');
-
+require('dotenv').config();
 const router = express.Router();
 
 let key= process.env.KEY 
