@@ -7,7 +7,7 @@ const middleware = require('../middleware/authMiddleware');
 
 const router = express.Router();
 
-let key="jwtSecret"
+let key= process.env.KEY 
 
 router.post('/google-login', async (req, res) => {
   try {

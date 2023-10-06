@@ -2,7 +2,7 @@
 const express = require("express");
 const cors = require('cors');
 const app = express();
-const port = process.env.PORT || 8080;
+const port = process.env.PORT 
 const path=require('path')
 // Import the database connection function
 const connectToDatabase = require("./src/configdb/db");
