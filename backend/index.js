@@ -3,7 +3,7 @@ const express = require("express");
 const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 8080;
-
+const path=require('path')
 // Import the database connection function
 const connectToDatabase = require("./src/configdb/db");
 const hotelRoutes = require('./src/controllers/hotelsList');
@@ -27,10 +27,12 @@ connectToDatabase()
      // Set up other middlewares and routes here
      app.use(cors()); // Enable CORS for all routes
      app.use(express.json());
-
+    app.use(express.static(path.join(__dirname,'./client/build')))
      // Use the hotel routes
-     app.use('/api/hotels', hotelRoutes);
-    
+    app.use('/api/hotels', hotelRoutes);
+    app.get('*',function(req,res){
+      res.sendFile(path.join(__dirname,'./client/build/index.html'))
+    });
      // Use the roomBooking routes
      app.use('/api', roomBooking);
      app.use('/api/users', userRoutes);
