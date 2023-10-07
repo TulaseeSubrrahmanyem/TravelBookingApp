@@ -7,8 +7,9 @@ const authMiddleware = require('../middlewares/AuthMiddleware');
 require('dotenv').config();
 const router = express.Router();
 
-let key= process.env.KEY || "jwtSecret" 
 
+let key= process.env.KEY || "jwtSecret" 
+console.log(key)
 router.post('/google-login', async (req, res) => {
   try {
     const { credential, username, email } = req.body;
