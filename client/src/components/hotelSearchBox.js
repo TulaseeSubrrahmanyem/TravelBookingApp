@@ -93,7 +93,7 @@
           return;
         }
   
-        const response = await axios.get(`http://localhost:8080/api/hotels/search`, {
+        const response = await axios.get(`https://travelapp-l6go.onrender.com/api/hotels/search`, {
           params: {
             city: city,
             checkIn: checkIn.toISOString(),

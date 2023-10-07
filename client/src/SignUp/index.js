@@ -27,7 +27,7 @@ function SignUp() {
         confirmPassword,
       };
 
-      const response = await axios.post('http://localhost:8080/api/users/register', data);
+      const response = await axios.post('https://travelapp-l6go.onrender.com/api/users/register', data);
       // Log the registration data in the console
       console.log('Registration Data:', response.data);
 
@@ -66,7 +66,7 @@ function SignUp() {
       const userName = credentialResponse.name;
 
       const serverResponse = await axios.post(
-        'http://localhost:8080/api/users/google-login', // Remove one forward slash here
+        'https://travelapp-l6go.onrender.com/api/users/google-login', // Remove one forward slash here
         {
           email: userEmail,
           username: userName,

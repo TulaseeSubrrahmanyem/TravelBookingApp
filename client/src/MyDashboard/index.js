@@ -79,7 +79,7 @@ const MyDashboard = () => {
 
       if (decodedToken && decodedToken.exp * 1000 > Date.now()) {
         const userEmail = decodedToken.user.email;
-        const response = await fetch(`http://localhost:8080/api/roombookings/user?page=${page}`, {
+        const response = await fetch(`https://travelapp-l6go.onrender.com/api/roombookings/user?page=${page}`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -158,7 +158,7 @@ const MyDashboard = () => {
   
       if (checkoutDate > currentDate) {
         // Allow cancellation only if the checkout date is in the future
-        const response = await fetch(`http://localhost:8080/api/roombookings/${bookingId}`, {
+        const response = await fetch(`https://travelapp-l6go.onrender.com/api/roombookings/${bookingId}`, {
           method: 'DELETE',
           headers: {
             'Content-Type': 'application/json',
@@ -243,7 +243,7 @@ const MyDashboard = () => {
 
       if (decodedToken && decodedToken.exp * 1000 > Date.now()) {
         const userEmail = decodedToken.user.email;
-        const response = await fetch('http://localhost:8080/api/users/myprofile', {
+        const response = await fetch('https://travelapp-l6go.onrender.com/api/users/myprofile', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -296,7 +296,7 @@ const MyDashboard = () => {
             country: user.country,
           };
 
-          const response = await fetch(`http://localhost:8080/api/users/usersUpdate/${userId}`, {
+          const response = await fetch(`https://travelapp-l6go.onrender.com/api/users/usersUpdate/${userId}`, {
             method: 'PUT',
             headers: {
               'Content-Type': 'application/json',

@@ -152,7 +152,7 @@ function HotelListPage() {
     console.log('Hotel Name:', hotelName);
     try {
       // Make an API request to fetch room details for the selected hotel
-      const response = await axios.get(`http://localhost:8080/api/hotels/roomsDetails`,{
+      const response = await axios.get(`https://travelapp-l6go.onrender.com/api/hotels/roomsDetails`,{
         params:{
           hotelName:hotelName
         }
