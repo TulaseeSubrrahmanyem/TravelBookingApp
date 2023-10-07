@@ -21,11 +21,12 @@ const handleDatabaseError = (err, req, res, next) => {
     stackTrace: err.stack,
   });
 };
-// const corsOptions = {
-//   origin: 'https://flourishing-sunflower-a236f2.netlify.app', // Replace with your Netlify frontend domain
-//   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-// };
 
+const corsOptions = {
+  origin: 'https://calm-kulfi-6d5582.netlify.app', // Replace with your Netlify frontend domain
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true, // Allow credentials (cookies, etc.) to be included in requests
+};
 
 // Connect to the database and start the server
 connectToDatabase()
@@ -35,8 +36,8 @@ connectToDatabase()
     //   res.sendFile(path.join(__dirname,'./client/build/index.html'))
     // });
      // Set up other middlewares and routes here
-     app.use(cors()); // Enable CORS for all routes
-    //  app.use(cors(corsOptions));
+     //app.use(cors()); // Enable CORS for all routes
+      app.use(cors(corsOptions));
      app.use(express.json());
     
      // Use the hotel routes
