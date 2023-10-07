@@ -8,8 +8,8 @@ require('dotenv').config();
 const router = express.Router();
 
 
-let key= process.env.KEY || "jwtSecret" 
-console.log(key)
+let key= process.env.KEY ;
+console.log("key2",key)
 router.post('/google-login', async (req, res) => {
   try {
     const { credential, username, email } = req.body;
