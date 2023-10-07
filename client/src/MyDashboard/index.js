@@ -79,6 +79,7 @@ const MyDashboard = () => {
 
       if (decodedToken && decodedToken.exp * 1000 > Date.now()) {
         const userEmail = decodedToken.user.email;
+        console.log(userEmail)
         const response = await fetch(`https://travelapp-l6go.onrender.com/api/roombookings/user?page=${page}`, {
           method: 'POST',
           headers: {
@@ -294,6 +295,7 @@ const MyDashboard = () => {
             city: user.city,
             state: user.state,
             country: user.country,
+           
           };
 
           const response = await fetch(`https://travelapp-l6go.onrender.com/api/users/usersUpdate/${userId}`, {

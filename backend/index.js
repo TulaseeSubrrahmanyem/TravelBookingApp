@@ -22,20 +22,17 @@ const handleDatabaseError = (err, req, res, next) => {
   });
 };
 
-const corsOptions = {
-  origin: 'https://calm-kulfi-6d5582.netlify.app', // Replace with your Netlify frontend domain
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true, // Allow credentials (cookies, etc.) to be included in requests
-};
+// const corsOptions = {
+//   origin: 'https://calm-kulfi-6d5582.netlify.app', // Replace with your Netlify frontend domain
+//   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+//   credentials: true, // Allow credentials (cookies, etc.) to be included in requests
+// };
 
 
 // Connect to the database and start the server
 connectToDatabase()
   .then(() => {
-    // app.use(express.static(path.join(__dirname,'./client/build')))
-    // app.get('*',function(req,res){
-    //   res.sendFile(path.join(__dirname,'./client/build/index.html'))
-    // });
+    
      // Set up other middlewares and routes here
   
     //  const allowedOrigins = ['https://calm-kulfi-6d5582.netlify.app', 'http://localhost:3000'];
@@ -56,7 +53,8 @@ connectToDatabase()
       //   })
       // );
 
-      app.use(cors(corsOptions));
+      //app.use(cors(corsOptions));
+      app.use(cors());
      app.use(express.json());
     
      // Use the hotel routes
