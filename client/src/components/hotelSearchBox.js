@@ -31,7 +31,11 @@
     const [suggestions, setSuggestions] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [selectedSuggestionIndex, setSelectedSuggestionIndex] = useState(-1);
-  
+    const baseURL = process.env.NODE_ENV === 'development'
+    ? process.env.REACT_APP_API_BASE_URL_DEV
+    : process.env.REACT_APP_API_BASE_URL_PROD;
+
+// Now, `baseURL` will have the appropriate value based on the environment
     // const inputRef = useRef(null);
     const [searching, setSearching] = useState(false);
 
@@ -93,7 +97,7 @@
           return;
         }
   
-        const response = await axios.get(`https://travelapp-l6go.onrender.com/api/hotels/search`, {
+        const response = await axios.get(`${baseURL}/api/hotels/search`, {
           params: {
             city: city,
             checkIn: checkIn.toISOString(),
