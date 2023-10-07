@@ -28,6 +28,7 @@ const corsOptions = {
   credentials: true, // Allow credentials (cookies, etc.) to be included in requests
 };
 
+
 // Connect to the database and start the server
 connectToDatabase()
   .then(() => {
@@ -36,7 +37,25 @@ connectToDatabase()
     //   res.sendFile(path.join(__dirname,'./client/build/index.html'))
     // });
      // Set up other middlewares and routes here
-     //app.use(cors()); // Enable CORS for all routes
+  
+    //  const allowedOrigins = ['https://calm-kulfi-6d5582.netlify.app', 'http://localhost:3000'];
+
+// Configure CORS middleware to allow requests from the allowed origins
+      // app.use(
+      //   cors({
+      //     origin: (origin, callback) => {
+      //       if (allowedOrigins.includes(origin) || !origin) {
+      //         callback(null, true);
+      //         console.log(allowedOrigins)
+      //       } else {
+      //         callback(new Error('Not allowed by CORS'));
+      //       }
+      //     },
+      //     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+      //     credentials: true,
+      //   })
+      // );
+
       app.use(cors(corsOptions));
      app.use(express.json());
     
