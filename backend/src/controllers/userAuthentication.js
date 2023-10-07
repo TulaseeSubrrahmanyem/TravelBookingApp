@@ -2,7 +2,8 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const Registeruser = require('../models/userDetails');
-const middleware = require('../middlewares/AuthMiddleware.js');
+//const middleware = require('../middlewares/AuthMiddleware.js');
+const authMiddleware = require('../middlewares/AuthMiddleware');
 require('dotenv').config();
 const router = express.Router();
 
@@ -147,7 +148,7 @@ jwt.sign(payload,key,{expiresIn:'7d'},
   }
 })
 
-router.post('/myprofile',middleware,async(req,res)=>{
+router.post('/myprofile',authMiddleware,async(req,res)=>{
   try{
 
     let exist=await Registeruser.findById(req.user.id);
@@ -163,7 +164,7 @@ router.post('/myprofile',middleware,async(req,res)=>{
 })
 
 // PUT route to update user profile
-router.put('/usersUpdate/:userID', middleware, async (req, res) => {
+router.put('/usersUpdate/:userID', authMiddleware, async (req, res) => {
   try {
     // Check if the user is authenticated
     if (!req.user) {

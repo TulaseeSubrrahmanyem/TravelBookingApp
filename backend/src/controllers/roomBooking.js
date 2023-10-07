@@ -2,7 +2,8 @@ const express = require('express');
 const { MongoClient } = require('mongodb');
 const router = express.Router();
 const RoomBooking = require('../models/RoomBooking.js');
-const middleware = require('../middlewares/AuthMiddleware.js');
+//const middleware = require('../middlewares/AuthMiddleware.js');
+const authMiddleware = require('../middlewares/AuthMiddleware');
 
 router.post('/roombookings', async (req, res) => {
     try {
@@ -34,7 +35,7 @@ router.post('/roombookings', async (req, res) => {
   // Assuming you have already imported the necessary modules and set up your Express app
 
 // Define a GET route to retrieve hotel booking details for the currently logged-in user
-router.post('/roombookings/user',middleware, async (req, res) => {
+router.post('/roombookings/user',authMiddleware, async (req, res) => {
   try {
     // Check if the user is authenticated and get their email from the authentication data
     const userEmail = req.user.email; // Replace with your actual way of accessing the user's email
@@ -59,7 +60,7 @@ router.post('/roombookings/user',middleware, async (req, res) => {
 });
 
 
-router.delete('/roombookings/:bookingId', middleware, async (req, res) => {
+router.delete('/roombookings/:bookingId', authMiddleware, async (req, res) => {
   try {
     // Check if the user is authenticated
     if (!req.user) {
