@@ -22,11 +22,11 @@ const handleDatabaseError = (err, req, res, next) => {
   });
 };
 
-// const corsOptions = {
-//   origin: 'https://calm-kulfi-6d5582.netlify.app', // Replace with your Netlify frontend domain
-//   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-//   credentials: true, // Allow credentials (cookies, etc.) to be included in requests
-// };
+const corsOptions = {
+  origin: 'https://courageous-entremet-eca43c.netlify.app', // Replace with your Netlify frontend domain
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true, // Allow credentials (cookies, etc.) to be included in requests
+};
 
 
 // Connect to the database and start the server
@@ -53,8 +53,8 @@ connectToDatabase()
       //   })
       // );
 
-      //app.use(cors(corsOptions));
-      app.use(cors());
+    app.use(cors(corsOptions));
+      //app.use(cors());
      app.use(express.json());
     
      // Use the hotel routes
