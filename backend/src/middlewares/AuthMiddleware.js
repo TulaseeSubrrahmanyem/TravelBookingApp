@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
+
 const key = process.env.KEY || "jwtSecret" 
 console.log("key1",key)
 function AuthMiddleware(req, res, next) {
@@ -24,4 +25,5 @@ function AuthMiddleware(req, res, next) {
     return res.status(401).json({ message: 'Token is not valid' });
   }
 };
+
 module.exports = AuthMiddleware
