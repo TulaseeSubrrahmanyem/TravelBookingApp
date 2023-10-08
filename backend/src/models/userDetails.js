@@ -17,6 +17,7 @@ let RegisterUser = new mongoose.Schema({
             return this.password || (this.isNew && !this.password);
             // return this.isNew && (!this.password || !this.confirmpassword);
           },
+        optional:true
     },
     phoneNumber: { type: String },
     address: { type: String },
