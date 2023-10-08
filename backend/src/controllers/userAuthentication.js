@@ -25,32 +25,37 @@ router.post('/google-login', async (req, res) => {
       const newUser = new Registeruser({
         username: username,
         email: email,
+        // Set select_by to 'google' for Google OAuth users
+        select_by: 'google',
       });
 
       await newUser.save();
-      
+
       // Retrieve the newly created user from the database
       existingUser = newUser;
     }
- // Generate a JWT token for the user
- const payload = {
-  user: {
-    id:existingUser.id,
-    email: existingUser.email,
-    name: existingUser.username,
-    },
-};
 
-jwt.sign(payload, key, { expiresIn: '7d' }, (err, token) => {
-  if (err) {
-    console.error('Error:', err);
-    return res.status(500).json({ message: 'Internal Server Error' });
-  }
- // Log the generated token
- console.log('Generated JWT token:', token);
-   // Respond with the JWT token
-   res.json({ message: 'Authentication successful', token: token });
-  });
+    // Generate a JWT token for the user
+    const payload = {
+      user: {
+        id: existingUser.id,
+        email: existingUser.email,
+        name: existingUser.username,
+      },
+    };
+
+    jwt.sign(payload, key, { expiresIn: '7d' }, (err, token) => {
+      if (err) {
+        console.error('Error:', err);
+        return res.status(500).json({ message: 'Internal Server Error' });
+      }
+
+      // Log the generated token
+      console.log('Generated JWT token:', token);
+
+      // Respond with the JWT token
+      res.json({ message: 'Authentication successful', token: token });
+    });
   } catch (error) {
     console.error('Error:', error);
     // Handle errors here, e.g., return an error response
