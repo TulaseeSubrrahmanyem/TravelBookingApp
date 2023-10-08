@@ -23,7 +23,7 @@ const handleDatabaseError = (err, req, res, next) => {
 };
 
 const corsOptions = {
-  origin: 'https://courageous-entremet-eca43c.netlify.app', // Replace with your Netlify frontend domain
+  origin: "https://chic-dodol-51f4f0.netlify.app",
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true, // Allow credentials (cookies, etc.) to be included in requests
 };
