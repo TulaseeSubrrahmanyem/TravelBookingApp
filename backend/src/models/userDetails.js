@@ -10,16 +10,24 @@ let RegisterUser = new mongoose.Schema({
             return this.password || this.confirmpassword;
         },
     },
+    // confirmpassword: {
+    //     type: String,
+    //     required: function () {
+    //         // Require confirmpassword only during registration
+    //         return (
+    //             (this.isNew && (!this.password || !this.confirmpassword)) ||
+    //             (this.select_by === 'google' && !this.confirmpassword)
+    //         );
+    //     },
+    // },
     confirmpassword: {
         type: String,
         required: function () {
             // Require confirmpassword only during registration
-            return (
-                (this.isNew && (!this.password || !this.confirmpassword)) ||
-                (this.select_by === 'google' && !this.confirmpassword)
-            );
+            return this.isNew && (!this.password || !this.confirmpassword);
         },
     },
+    
     phoneNumber: { type: String },
     address: { type: String },
     city: { type: String },

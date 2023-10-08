@@ -13,7 +13,7 @@ console.log("key2",key)
 {/*google login */}
 router.post('/google-login', async (req, res) => {
   try {
-    const { credential, username, email,confirmpassword } = req.body;
+    const { credential, username, email } = req.body; // Remove 'confirmpassword' from here
 
     console.log('Received credential:', credential);
 
@@ -25,9 +25,9 @@ router.post('/google-login', async (req, res) => {
       const newUser = new Registeruser({
         username: username,
         email: email,
-         // Set select_by to 'google' for Google OAuth users
-         select_by: 'google',
-         confirmpassword: confirmpassword, // Add this line
+        // Set select_by to 'google' for Google OAuth users
+        select_by: 'google',
+        confirmpassword: '', // Set to an empty string
       });
 
       await newUser.save();
@@ -63,6 +63,7 @@ router.post('/google-login', async (req, res) => {
     res.status(500).json({ message: 'Internal Server Error' });
   }
 });
+
 
 
 
