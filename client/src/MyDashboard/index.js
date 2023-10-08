@@ -65,7 +65,7 @@ const MyDashboard = () => {
       return null;
     }
   };
-
+{/*handle Fetch the booking info */}
   const fetchData = async (page = 1) => {
     try {
       if (!token) return;
@@ -114,6 +114,9 @@ const MyDashboard = () => {
   const handleTabClick = (tab) => {
     setActiveTab(tab);
    // fetchData();
+   if (tab === 'logout') {
+    handleLogout();
+   } 
   };
 
   const handleItemsPerPageChange = (e) => {
@@ -196,7 +199,7 @@ const MyDashboard = () => {
     setToken(null);
     navigate('/');
   };
-
+{/*profile update */}
   const handleProfileSubmit = async (e) => {
     e.preventDefault();
 
@@ -211,6 +214,8 @@ const MyDashboard = () => {
       }
 
       const userId = decodedToken.user.id;
+      console.log("userId",userId)
+
       const updatedUserObject = {
         username: user.username,
         email: user.email,
@@ -219,7 +224,7 @@ const MyDashboard = () => {
         city: user.city,
         state: user.state,
         country: user.country,
-      };
+      };      
 
       const response = await fetch(`https://travelapp-l6go.onrender.com/api/users/usersUpdate/${userId}`, {
         method: 'PUT',
@@ -245,6 +250,16 @@ const MyDashboard = () => {
         pauseOnHover: true,
         draggable: true,
       });
+    // Clear the input fields
+    setUser({
+      username: '',
+      email: '',
+      phoneNumber: '',
+      address: '',
+      city: '',
+      state: '',
+      country: '',
+    });
     } catch (error) {
       console.error('Error updating profile data:', error);
 
@@ -342,7 +357,12 @@ const MyDashboard = () => {
             <hr style={{ marginTop: '0px', marginBottom: '0px' }} />
             <div
               className={`d-flex flex-row ${activeTab === 'logout' ? 'active-item' : ''}`}
-              onClick={() => handleTabClick('logout')}
+              onClick={() => {
+                handleTabClick('logout');
+                // if (activeTab === 'logout') {
+                //   handleLogout();
+                //  } 
+              }}
             >
               <LogoutOutlinedIcon style={{ fontSize: '20px', margin: '5px' }} />
               <h1 className='logout'>Logout</h1>
@@ -407,7 +427,7 @@ const MyDashboard = () => {
                   </div>
                 </div>
                 {(!data || data.length === 0) ? (
-                  <p className='text-center'>There are no bookings to display.</p>
+                  <p className='text-center m-s'>There are no bookings to display.</p>
                 ) : (
                   <div>
                     <table className='tableDataBooking mt-4'>

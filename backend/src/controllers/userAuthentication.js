@@ -10,6 +10,7 @@ const router = express.Router();
 
 let key= process.env.KEY ;
 console.log("key2",key)
+{/*google login */}
 router.post('/google-login', async (req, res) => {
   try {
     const { credential, username, email } = req.body;

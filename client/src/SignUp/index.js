@@ -15,7 +15,7 @@ function SignUp() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-
+{/*Register to login */}
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -41,59 +41,65 @@ function SignUp() {
       alert('Registration failed. Please check the console for details.');
     }
   };
+{/*google sign */}
+const responseGoogle = async (response) => {
+  try {
+    console.log('Google OAuth response:', response);
 
-  const responseGoogle = async (response) => {
-    try {
-      console.log('Google OAuth response:', response);
+    if (!response.credential) {
+      console.error('ID token not found in the response');
+      return;
+    }
 
-      if (!response.credential) {
-        console.error('ID token not found in the response');
-        return;
-      }
+    const idToken = response.credential;
+    console.log('Received idToken:', idToken);
 
-      const idToken = response.credential;
-      console.log('Received idToken:', idToken);
+    if (!idToken || !idToken.includes('.')) {
+      console.error('Invalid idToken format');
+      return;
+    }
 
-      if (!idToken || !idToken.includes('.')) {
-        console.error('Invalid idToken format');
-        return;
-      }
+    const credentialResponse = jwtDecode(idToken);
+    console.log('Decoded JWT:', credentialResponse);
 
-      const credentialResponse = jwtDecode(idToken);
-      console.log('Decoded JWT:', credentialResponse);
+    const userEmail = credentialResponse.email;
+    const userName = credentialResponse.name;
 
-      const userEmail = credentialResponse.email;
-      const userName = credentialResponse.name;
-
-      const serverResponse = await axios.post(
-        'https://travelapp-l6go.onrender.com/api/users/google-login', // Remove one forward slash here
-        {
-          email: userEmail,
-          username: userName,
-          credential: idToken,
+    const serverResponse = await axios.post(
+      'https://travelapp-l6go.onrender.com/api/users/google-login', // Remove one forward slash here
+      {
+        email: userEmail,
+        username: userName,
+        credential: idToken,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${idToken}`,
         },
-        {
-          headers: {
-            Authorization: `Bearer ${idToken}`,
-          },
-        }
-      );
-      
+      }
+    );
 
-      console.log(serverResponse.data);
+    console.log(serverResponse.data);
 
+    // Check if the login was successful based on server response
+    if (serverResponse.status === 200 ) {
       const newToken = serverResponse.data.token;
       Cookies.set('jwtToken', newToken, { expires: 7 });
       console.log('Token stored in cookies:', newToken);
-     // Store the token in local storage
-     localStorage.setItem('jwtToken', newToken);
-     console.log('Token stored in local storage:', newToken);
-     setToken(newToken)
+      // Store the token in local storage
+      localStorage.setItem('jwtToken', newToken);
+      console.log('Token stored in local storage:', newToken);
+      setToken(newToken);
       navigate('/');
-    } catch (error) {
-      console.error('Error:', error);
+    } else {
+      console.error('Login failed. Server response:', serverResponse);
+      // Handle failed login (e.g., show an error message)
     }
-  };
+  } catch (error) {
+    console.error('Error:', error);
+  }
+};
+
 
   return (
     <div className='signUpBg'>
