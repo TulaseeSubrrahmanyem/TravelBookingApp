@@ -98,6 +98,7 @@ router.post('/register', async (req, res) => {
           username,
           email,
           password: hashedPassword,
+          select_by: 'email',
           mobileNumber,
           address,
           city,
