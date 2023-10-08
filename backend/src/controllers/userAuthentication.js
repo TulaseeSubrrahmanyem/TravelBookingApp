@@ -32,8 +32,8 @@ router.post('/google-login', async (req, res) => {
  const payload = {
   user: {
     id:existingUser.id,
-    email: email,
-    name: username,
+    email: existingUser.email,
+    name: existingUser.username,
     },
 };
 
@@ -131,7 +131,7 @@ let payload={
   user:{
     id:exist.id,
     name: exist.username,
-    
+    email:exist.email
   }
 }
 console.log(payload.user.id,payload.user.name)
