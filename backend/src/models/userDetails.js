@@ -14,7 +14,8 @@ let RegisterUser = new mongoose.Schema({
         type: String,
         required: function () {
             // Require confirmpassword only during registration
-            return this.isNew && (!this.password || !this.confirmpassword);
+            return this.password || (this.isNew && !this.password);
+            // return this.isNew && (!this.password || !this.confirmpassword);
           },
     },
     phoneNumber: { type: String },
