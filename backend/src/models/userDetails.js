@@ -14,10 +14,11 @@ let RegisterUser = new mongoose.Schema({
         type: String,
         required: function () {
             // Require confirmpassword only during registration
-            return this.password || (this.isNew && !this.password);
-            // return this.isNew && (!this.password || !this.confirmpassword);
-          },
-        optional:true
+            return (
+                (this.isNew && (!this.password || !this.confirmpassword)) ||
+                (this.select_by === 'google' && !this.confirmpassword)
+            );
+        },
     },
     phoneNumber: { type: String },
     address: { type: String },
