@@ -28,6 +28,9 @@ router.post('/google-login', async (req, res) => {
       });
 
       await newUser.save();
+      
+      // Retrieve the newly created user from the database
+      existingUser = newUser;
     }
  // Generate a JWT token for the user
  const payload = {
