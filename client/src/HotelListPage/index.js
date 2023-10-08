@@ -10,7 +10,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import HotelSearchBox from '../components/hotelSearchBox.js';
 import './index.css';
 import Pagination from '../Pagination/pagination';
-import GoogleMap from '../googleMap/googleMap';
+
 import HotelFeatures from '../components/hotelFeatures';
 import { ToastContainer ,toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -168,7 +168,7 @@ function HotelListPage() {
     console.log('Hotel Name:', hotelName);
     try {
       // Make an API request to fetch room details for the selected hotel
-      const response = await axios.get(`http://localhost:8080/api/hotels/roomsDetails`,{
+      const response = await axios.get(`https://travelapp-l6go.onrender.com/api/hotels/roomsDetails`,{
         params:{
           hotelName:hotelName
         }
@@ -419,7 +419,7 @@ function HotelListPage() {
               <div className='errorContainer'>
                 <Link to='/hotel' className='backSearch'>Back To Search</Link>
                 <img src={"images/errorImg.jpg"} alt="Server Error 404" className='errorImg' />
-                <p className='errorMsg'>No hotels available for the specified city.</p>
+                <p className='errorMsg alignItem-center'>No hotels available for the specified city.</p>
               </div>
             )}
           </div>

@@ -129,6 +129,26 @@ const handleFormSubmit = async (e) => {
         pauseOnHover: true,
         draggable: true,
       });
+
+         // Clear the form fields on successful submission
+         setFormData({
+          hotelName: hotelName,
+          hotelCity: hotelCity,
+          roomName: '',
+          roomPrice: 0,
+          checkInDate: '',
+          checkOutDate: '',
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          address: '',
+          nationality: 'India',
+          currentCountry: 'India',
+          travelers: [initialTraveler],
+          termsAndConditions: false,
+          paymentOption: '',
+        });
     } catch (error) {
       console.error('Error submitting form:', error);
       toast.error('An error occurred. Please try again later.', {

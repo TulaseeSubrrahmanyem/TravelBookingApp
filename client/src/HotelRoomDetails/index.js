@@ -13,7 +13,7 @@ function HotelRoomDetails() {
   
   const location = useLocation();
   const { roomTypes,CheckInDate,CheckOutDate,Adults,Childs,errorMessage,hotelsWithImagesAndData, searchedCity } = location.state || {};
- // console.log("CheckInDate,CheckOutDate",CheckInDate,CheckOutDate,Adults,Childs)
+  console.log("CheckInDate,CheckOutDate",CheckInDate,CheckOutDate,Adults,Childs)
   const navigate=useNavigate()
   // room,roomData.Roomtype ,room.city,room.name,roomData.Price[guestIndex]
   const hotleBookingBtn=(room,hotelName,hotelCity,roomName,roomPrice) =>{
