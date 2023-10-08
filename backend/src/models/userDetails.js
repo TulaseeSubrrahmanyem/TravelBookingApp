@@ -13,9 +13,9 @@ let RegisterUser = new mongoose.Schema({
     confirmpassword: {
         type: String,
         required: function () {
-            // Require password if it exists (e.g., for registration)
-            return this.password || this.confirmpassword;
-        },
+            // Require confirmpassword only during registration
+            return this.isNew && (!this.password || !this.confirmpassword);
+          },
     },
     phoneNumber: { type: String },
     address: { type: String },
@@ -24,12 +24,6 @@ let RegisterUser = new mongoose.Schema({
     state: { type: String },
 });
 
-// Define a pre-save middleware to set confirmpassword to undefined if it's not required
-RegisterUser.pre('save', function (next) {
-    if (!this.password) {
-        this.confirmpassword = undefined;
-    }
-    next();
-});
+
 
 module.exports = mongoose.model("RegisterUser", RegisterUser);
