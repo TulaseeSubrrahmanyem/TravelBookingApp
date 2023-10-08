@@ -28,7 +28,7 @@ function HotelListPage() {
     checkInDate:CheckInDate='',
     checkOutDate:CheckOutDate=''
   } = locationState;
-  //console.log(location)
+  console.log(locationState.hotels)
   // const hotelsWithImagesAndData = location.state?.hotels || [];
   // const searchedCity = location.state?.city || '';
   // const errorMessage = location.state?.error || '';
@@ -62,21 +62,36 @@ function HotelListPage() {
         return; // Exit the useEffect
       }
 
+    
       filteredData = filteredData.filter((hotel) => {
-        const price = parseInt(hotel.prices[0].rooms[0].Price[0].replace(/[^\d]/g, ''), 10);
-        const hotelName = hotel.name.toLowerCase();
-        const searchQuery = searchHotelName.toLowerCase();
-
-        // Filter based on price range
-        const isPriceInRange = price >= priceRange[0] && price <= priceRange[1];
-
-        // Filter based on star rating
-        const isStarRatingMatched = minStarRating.length === 0 || minStarRating.includes(hotel.rating[0].star_count);
-
-        // Filter based on hotel name
-        const isHotelNameMatched = hotelName.includes(searchQuery);
-
-        return isPriceInRange && isStarRatingMatched && isHotelNameMatched;
+        // Check if the necessary data is available
+        if (
+          hotel.prices &&
+          hotel.prices.length > 0 &&
+          hotel.prices[0].rooms &&
+          hotel.prices[0].rooms.length > 0 &&
+          hotel.prices[0].rooms[0].Price &&
+          hotel.prices[0].rooms[0].Price.length > 0
+        ) {
+          const price = parseInt(hotel.prices[0].rooms[0].Price[0].replace(/[^\d]/g, ''), 10);
+          const hotelName = hotel.name.toLowerCase();
+          const searchQuery = searchHotelName.toLowerCase();
+  
+          // Filter based on price range
+          const isPriceInRange = price >= priceRange[0] && price <= priceRange[1];
+  
+          // Filter based on star rating
+          const isStarRatingMatched =
+            minStarRating.length === 0 || minStarRating.includes(hotel.rating[0].star_count);
+  
+          // Filter based on hotel name
+          const isHotelNameMatched = hotelName.includes(searchQuery);
+  
+          return isPriceInRange && isStarRatingMatched && isHotelNameMatched;
+        } else {
+          // Handle the case where the necessary data is missing or undefined
+          return false; // Filter it out
+        }
       });
       console.log('Filtering complete');
       // Sort the filtered data based on the selected criteria
@@ -101,16 +116,17 @@ function HotelListPage() {
       setActiveButton(sortingCriteria);
       console.log('Setting current hotels');
       console.log('completed')
-      setTimeout(() => {
+      // setTimeout(() => {
         setIsLoading(false); // Set isLoading to false after a certain duration (adjust as needed)
-      }, 1000);
+      // }, 1000);
 
        setCurrentHotels(filteredData.slice(indexOfFirstItem, indexOfLastItem));
         // Introduce a timeout to simulate loading
         
     } catch (error) {
       console.error('Error fetching hotel data:', error);
-      return [];
+      setCurrentHotels([]);
+      setIsLoading(false); 
     }
   },[sortingCriteria, indexOfFirstItem, indexOfLastItem, hotelsWithImagesAndData, priceRange, searchHotelName, minStarRating]);
  //
@@ -152,7 +168,7 @@ function HotelListPage() {
     console.log('Hotel Name:', hotelName);
     try {
       // Make an API request to fetch room details for the selected hotel
-      const response = await axios.get(`https://travelapp-l6go.onrender.com/api/hotels/roomsDetails`,{
+      const response = await axios.get(`http://localhost:8080/api/hotels/roomsDetails`,{
         params:{
           hotelName:hotelName
         }
