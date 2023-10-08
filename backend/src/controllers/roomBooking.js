@@ -42,10 +42,10 @@ router.post('/roombookings/user',authMiddleware, async (req, res) => {
     console.log("userEmail",userEmail)
     // Query the database to find room bookings by the user's email
     const roomBookings = await RoomBooking.find({ email: userEmail });
-
+   console.log("roomBookings Data",roomBookings)
     // Count the number of bookings for the user's email
     const bookingCount = roomBookings.length;
-
+  
     if (bookingCount === 0) {
       return res.status(404).json({ error: 'No bookings found for the logged-in user' });
     }
