@@ -224,7 +224,7 @@ function HotelSearchBox() {
           <div className='d-sm-flex flex-sm-column  justify-content-sm-center align-item-sm-center d-md-flex flex-md-row'>
            {/*search hotel */}  
           <div className='d-flex flex-column '>
-              <div className='d-flex flex-row justify-content-between  inputSearchBox'>
+              <div className='d-flex flex-row justify-content-start  inputSearchBox'>
                 <LocationOn className='icons' />
                 <div className='d-flex flex-column justify-content-start '>
                   <input
@@ -354,7 +354,7 @@ function HotelSearchBox() {
           </div>
         </div>
       </div>        
-      <ToastContainer position='top-center' autoClose={3000} />
+      <ToastContainer position='top-center ' autoClose={3000} className="toastContainer" />
     </div>
     </div>
   );
