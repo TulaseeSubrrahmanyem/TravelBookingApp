@@ -196,7 +196,8 @@ function HotelListPage() {
   
   return (
     <div className='hotelListPage bg-light m-0 p-0'>
-    {isLoading ?(<div className='d-flex flex-row justify-content-center'>Loading ...</div>):
+    {isLoading ?(<div className='d-flex flex-row justify-content-center'>Loading ...</div>
+    ):
     ( 
     <>
       <div className="d-flex flex-column justify-content-center align-item-center hotelSearch">
@@ -205,7 +206,8 @@ function HotelListPage() {
   
         <div className='container'>
           <div className='row'>
-            {hotelsWithImagesAndData.length > 0 ? (
+            {
+              hotelsWithImagesAndData.length > 0 ? (
               <div className='m-0 p-0 w-100'>
               <div className='d-sm-flex d-sm-column d-md-flex flex-md-row justify-content-md-between'>
                 
@@ -416,9 +418,9 @@ function HotelListPage() {
               </div>
             
             ) : (
-              <div className='errorContainer'>
-                <Link to='/hotel' className='backSearch'>Back To Search</Link>
-                <img src={"images/errorImg.jpg"} alt="Server Error 404" className='errorImg' />
+              <div className='errorContainer mb-5'>
+                <Link to='/hotel' className='backSearch text-center m-3'>Back To Search</Link>
+                <img src={"/images/errorImg.jpg"} alt="Server Error 404" className='errorImg' />
                 <p className='errorMsg alignItem-center'>No hotels available for the specified city.</p>
               </div>
             )}
@@ -429,6 +431,7 @@ function HotelListPage() {
           <ToastContainer
           position='top-center' // Centered at the top of the screen
           autoClose={3000}  
+          className="toastContainer"
         />
       </div>
       </>

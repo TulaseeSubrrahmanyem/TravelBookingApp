@@ -84,14 +84,22 @@ function HotelSearchBox() {
     console.log("Search button clicked")
     setIsLoading(true); // Show loading indicator
     try {
-       
       if (!city) {
-        const errorMessage = 'Please enter a city.';
-        setErrorMessage(errorMessage);
-        toast.error(errorMessage);
+        // Display an error toast
+        toast.error('Please enter a city.', {
+          position: toast.POSITION.TOP_CENTER,
+          autoClose: 3000,
+        });
         setIsLoading(false);
-        return;
+        return; // Stop further execution
       }
+      // if (!city) {
+      //   const errorMessage = 'Please enter a city.';
+      //   setErrorMessage(errorMessage);
+      //   toast.error(errorMessage);
+      //   setIsLoading(false);
+      //   return;
+      // }
 
       const response = await axios.get(`https://travelapp-l6go.onrender.com/api/hotels/search`, {
         params: {
@@ -114,7 +122,7 @@ function HotelSearchBox() {
         setHotels(response.data);
       
 
-      setTimeout(() => {
+      // setTimeout(() => {
         navigate('/hotel/hotelsList/', {
           state: {
             hotels: response.data,
@@ -127,11 +135,12 @@ function HotelSearchBox() {
             isLoading: false,
           },
         });
-      }, 1000);
+      // }, 1000);
     }
     } catch (error) {
       console.error('Error fetching hotel data:', error);
       setIsLoading(false);
+     
       const errorMessage = 'An error occurred while searching for hotels.';
       setErrorMessage(errorMessage);
       navigate('/hotel/hotelsList/', { state: { errorMessage, hotels: [], city, isLoading: false } });
@@ -353,8 +362,8 @@ function HotelSearchBox() {
             <button className='bookingBtn col-sm-12' onClick={searchHotels}>  {isLoading ? 'Searching...' : 'Search'}</button>
           </div>
         </div>
-      </div>        
-      <ToastContainer position='top-center ' autoClose={3000} className="toastContainer" />
+        <ToastContainer position='top-center ' autoClose={3000} className="toastContainer"/>
+      </div>       
     </div>
     </div>
   );

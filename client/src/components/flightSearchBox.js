@@ -396,7 +396,7 @@ const FlightSearchBox = () => {
           <button className="bookingBtn" onClick={bookTicket}>
             Book
           </button>
-          <ToastContainer />
+          <ToastContainer className="toastContainer" />
         </div>
       )}
     </div>

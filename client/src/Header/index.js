@@ -112,7 +112,7 @@ function Header() {
             <Container>
               <Link to="/">
                 <Navbar.Brand>
-                  <img src="../images/logo_2.png" alt="Logo" height="50" className="d-inline-block align-top" />
+                  <img src="/images/logo.png" alt="Logo" height="50" className="d-inline-block align-top"  loading="lazy" />
                 </Navbar.Brand>
               </Link>
               {token ? (

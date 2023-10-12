@@ -39,15 +39,19 @@ const MyDashboard = () => {
   });
 
   useEffect(() => {
+    if (!token) return;
+  
     const storedToken = Cookies.get('jwtToken');
     const decodedToken = decodeToken(storedToken);
-
+  
     if (storedToken && decodedToken && decodedToken.exp * 1000 > Date.now()) {
       setToken(storedToken);
+      fetchProfileData(); // Fetch profile data when the component mounts
     } else {
       Cookies.remove('jwtToken');
     }
   }, [setToken]);
+  
 
 
 
@@ -86,20 +90,27 @@ const MyDashboard = () => {
         body: JSON.stringify({ email: userEmail }),
       });
 
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-
-      const responseData = await response.json();
-      console.log("Response Data",responseData)
-      const bookings = responseData?.bookings || [];     
-
-      setData(bookings);
-      console.log("setData",data)
-      setTotalItems(bookings.length);
-      setTotalPages(Math.ceil(bookings.length / itemsPerPage));
-      setIsLoading(false);
-    } catch (error) {
+      
+if (!response.ok) {
+  if (response.status === 404) {
+    // Handle the case where there is no data (HTTP status 404) without showing an error
+    console.log('No data found.');
+  } else {
+    // Handle other network errors or unexpected responses
+    throw new Error('Network response was not ok');
+  }
+} else {
+  // Process the response and set the data
+  const responseData = await response.json();
+  console.log("ResponceData",responseData)
+  const bookings = responseData?.bookings || [];
+  setData(bookings);
+  console.log("setData",data)
+  setTotalItems(bookings.length);
+  setTotalPages(Math.ceil(bookings.length / itemsPerPage));
+  setIsLoading(false);
+}
+} catch (error) {
       console.error('Error fetching data:', error);
       setIsLoading(false);
     }
@@ -116,7 +127,10 @@ const MyDashboard = () => {
    // fetchData();
    if (tab === 'logout') {
     handleLogout();
-   } 
+   } else if (tab === 'bookings' && tab === 'dashboard') {
+    // Fetch data only when transitioning from Dashboard to Bookings tab
+    fetchData();
+  }
   };
 
   const handleItemsPerPageChange = (e) => {
@@ -131,7 +145,7 @@ const MyDashboard = () => {
   const handleSearchInputChange = (e) => {
     setSearchQuery(e.target.value);
   };
-
+{/*cancel booking */}
   const handleCancelBooking = async (bookingId) => {
     try {
       const bookingToCancel = data.find((booking) => booking._id === bookingId);
@@ -341,7 +355,8 @@ const MyDashboard = () => {
             <hr style={{ marginTop: '0px', marginBottom: '0px' }} />
             <div
               className={`d-flex flex-row ${activeTab === 'bookings' ? 'active-item' : ''}`}
-              onClick={() => handleTabClick('bookings')}
+              onClick={() => handleTabClick('bookings')
+             }
             >
               <BookmarkAddedOutlinedIcon style={{ fontSize: '20px', margin: '5px' }} className='bookingsIcon' />
               <h1 className='bookings'>My Bookings</h1>

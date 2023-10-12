@@ -158,40 +158,26 @@ const responseGoogle = async (response) => {
             Sign Up
           </button>
 
-          <div className="google-signin d-none d-md-block">
-          <GoogleOAuthProvider clientId="172944422596-inm0mj3q4i7v0fbquv3nv9j5u9fv2j6d.apps.googleusercontent.com">
+           <p style={{textAlign:"center",fontSize:"16px",fontWeight:"550"}}>or</p>
+        <div className="google-signin-container">
+        <GoogleOAuthProvider clientId="172944422596-inm0mj3q4i7v0fbquv3nv9j5u9fv2j6d.apps.googleusercontent.com">
           <GoogleLogin
             onSuccess={responseGoogle}
             onError={() => {
               console.log('Login Failed');
             }}
-            border="none"       
-            
-            shadow="none"      
-             width="305px"
-            className="google-signin-button"
+            theme='outline'
+            text="signup_with"
+            shape='rectangular'
+            width='200px'
+            size='large'
           />
         </GoogleOAuthProvider>
-        
-        </div>
-        <div className="google-signin d-block d-md-none">
-        <GoogleOAuthProvider clientId="172944422596-inm0mj3q4i7v0fbquv3nv9j5u9fv2j6d.apps.googleusercontent.com">
-        <GoogleLogin
-          onSuccess={responseGoogle}
-          onError={() => {
-            console.log('Login Failed');
-          }}
-          border="none"       
-          
-          shadow="none"      
-           width="290px"
-          className="google-signin-button"
-        />
-      </GoogleOAuthProvider>
-      </div>
+      </div>     
       
         </form>
       </div>
+      <ToastContainer className="toastContainer"/>
     </div>
   );
 }

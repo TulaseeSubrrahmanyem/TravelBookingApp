@@ -276,6 +276,7 @@ function HotelRoomDetails() {
             <ToastContainer
             position='top-center' // Centered at the top of the screen
             autoClose={3000}  
+            className="toastContainer"
           />
        </div>
   );

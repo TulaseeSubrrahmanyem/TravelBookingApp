@@ -1,258 +1,262 @@
 .hotleRoomDetails{
-    padding: 10px;
-    margin:0px;  
+  padding: 10px;
+  margin:0px;  
 }
 .detailsCard{
-    background-color: #ffff;
-    padding: 30px;
-    border-radius: 10px;
-    margin-top: 30px;
+  background-color: #ffff;
+  padding: 30px;
+  border-radius: 10px;
+  margin-top: 30px;
 }
 .detailsCard h3{
-    font-size: 18px;
-    font-weight: 550;
-        
+  font-size: 18px;
+  font-weight: 550;
+      
 }
 .detailsCard p{
-    font-size: 14px;
-    font-weight: 500;
-    margin: 3px;
-    white-space:pre-wrap;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 3px;
+  white-space:pre-wrap;
 }
 .imagesRow{
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 .large-images{
-    width: 400px;
-    height: 280px;
-    border-radius: 10px;
-    margin: 5px;
-    transition: transform 0.3s;
+  width: 400px;
+  height: 280px;
+  border-radius: 10px;
+  margin: 5px;
+  transition: transform 0.3s;
 }
 
 .medium-images {
-    width: 300px;
-    height: 140px;
-    border-radius: 10px;
-    margin: 5px;
-    transition: transform 0.3s;
+  width: 300px;
+  height: 140px;
+  border-radius: 10px;
+  margin: 5px;
+  transition: transform 0.3s;
 }
 
 .small-images{
-    width: 200px;
-    height: 120px;
-    border-radius: 10px;
-    margin: 5px;
-    transition: transform 0.3s;
+  width: 200px;
+  height: 120px;
+  border-radius: 10px;
+  margin: 5px;
+  transition: transform 0.3s;
 }
 .large-images:hover,
 .medium-images:hover,
 .small-images:hover {
-    transform: scale(1.3); /* Increase the size of the image on hover */
-    cursor:zoom-in;
+  transform: scale(1.3); /* Increase the size of the image on hover */
+  cursor:zoom-in;
 }
 .addressWithGps{
-    background-color:#2f2f30 ;
+  background-color:#2f2f30 ;
 }
 .addressWithGps{
-    border-radius: 10px;
-    background-color:#F8F9FA ;
-    padding: 10px;
-    margin-top: 5px;
-    font-size: 16px;
-    font-weight: 500;
+  border-radius: 10px;
+  background-color:#F8F9FA ;
+  padding: 10px;
+  margin-top: 5px;
+  font-size: 16px;
+  font-weight: 500;
 }
 .priceDetails{
-    background-color: #ffff;
-    border-radius: 10px;
-    padding: 10px;
+  background-color: #ffff;
+  border-radius: 10px;
+  padding: 10px;
 }
 .roomPricesCard{
-    background-color: #ffff;
-    border-radius: 10px;
-    padding: 35px;
-    margin: 8px;
-    width: 100%;
+  background-color: #ffff;
+  border-radius: 10px;
+  padding: 35px;
+  margin: 8px;
+  width: 100%;
 }
 .roomTypeName{
-    color:#007bff ;
-    font-size: 18px;
-    font-weight: 550;
-    text-decoration: underline;
-    text-decoration-thickness: auto;
+  color:#007bff ;
+  font-size: 18px;
+  font-weight: 550;
+  text-decoration: underline;
+  text-decoration-thickness: auto;
 }
 /* Style the table */
 .roomPriceTable{
-    width: 100%;
-    /* border-collapse: collapse; */
+  width: 100%;
+  /* border-collapse: collapse; */
 
-    height: 100%; 
-    table-layout:fixed;
-    word-break: break-word;
-  }
-  .roomPriceTable thead{
-    border: 1px solid #ddd; 
-   
-  }
-  /* .roomPriceTable tb,td,tr {
-    border: 1px solid black; 
-    padding: 10px; 
-    border-color:#d3d6da;
-    
-  } */
-  .roomPriceTable th{
-    padding: 0px;
-    margin-left: 35px;
-  }
- .roomPriceTable td {
-    border: 1px solid #ddd; 
-    padding: 10px;
-    text-align: left;
-    width: 100%;
-  }
-  /* Style table headers */
-  .roomPriceTable thead {
-    background-color: #f8f9fa;
-    text-align: left;
-    }
-  .roomPriceTable thead  tr{
-    padding: 20px;
-    margin: 0px;
-  }
-  .roomPriceTable tbody  td{
-    padding:0px;
-    margin: 0px;
-      
-  }
-  .facilityies{
-    font-size: 16px;
-    display: flex;
-    flex-direction:row;
-    justify-content: flex-start;
-   
-    margin-top: 10px;
-  }
-  .noOfTravellers{
-    display: flex;
-    flex-direction: row;
-    color:#4d4e4e;
-    margin: 5px;
-  }
+  height: 100%; 
+  table-layout:fixed;
+  word-break: break-word;
+}
+.roomPriceTable thead{
+  border: 1px solid #ddd; 
  
-.roomPriceTable td ul {
-    margin: 0;
-    padding: 0;
-   
-  }
-  
-  .roomPriceTable td ul li {
-    list-style: none; /* Remove bullet points from lists */
-    margin-bottom: 5px; 
-  }
-  .bookingButton{
-    width: 100px;
-    height: 40px;
-    border: none;
-    border-radius: 3px;
-    background-color: #007bff;
-    color: #ffff;
-    font-size: 14px;
-    font-weight: 550;
-    margin-right: 5px;
-
-  }  
-  .bookingButton:hover{
-    background-color: #0361c5;
-  }
-  .hotelRating1{
-    color: gold;
-    width:12px;
-  }
-  .verticalLine{
-    border: none;
-    border-left: 1px solid hsla(200, 10%, 50%,100);
-    width: 1px;      
-    margin: 0px; 
-    padding: 0px;
-  
-  }
-  .roomTaxes{
-    font-size:13px;
-    margin-top:0px;
-    color:#6d6e6e;
-    font-weight:500;
-  }
-  
-  @media (max-width: 767px){
-    
-  
-.hotelImg{
-   width:100%;
-   height:180px;
 }
-.star1 li{
-  padding-left:0px;
-  padding-top: 0px;
+/* .roomPriceTable tb,td,tr {
+  border: 1px solid black; 
+  padding: 10px; 
+  border-color:#d3d6da;
   
+} */
+.roomPriceTable th{
+  padding: 0px;
+  margin-left: 35px;
 }
-.detailsCard{
-  background-color: #ffff;
-  padding:10px;
-  border-radius: 10px;
-  margin-top: 30px;
+.roomPriceTable td {
+  border: 1px solid #ddd; 
+  padding: 10px;
+  text-align: left;
+  width: 100%;
 }
-.hotelName{
+/* Style table headers */
+.roomPriceTable thead {
+  background-color: #f8f9fa;
+  text-align: left;
+  }
+.roomPriceTable thead  tr{
+  padding: 20px;
   margin: 0px;
+}
+.roomPriceTable tbody  td{
+  padding:0px;
+  margin: 0px;
+    
+}
+.facilityies{
+  font-size: 16px;
+  display: flex;
+  flex-direction:row;
+  justify-content: flex-start;
+ 
+  margin-top: 10px;
+}
+.noOfTravellers{
+  display: flex;
+  flex-direction: row;
+  color:#4d4e4e;
+  margin: 5px;
+}
+
+.roomPriceTable td ul {
+  margin: 0;
+  padding: 0;
+ 
+}
+
+.roomPriceTable td ul li {
+  list-style: none; /* Remove bullet points from lists */
+  margin-bottom: 5px; 
+}
+.bookingButton{
+  width: 100px;
+  height: 40px;
+  border: none;
+  border-radius: 3px;
+  background-color: #007bff;
+  color: #ffff;
+  font-size: 14px;
+  font-weight: 550;
+  margin-right: 5px;
+
+}  
+.bookingButton:hover{
+  background-color: #0361c5;
 }
 .hotelRating1{
   color: gold;
   width:12px;
-  margin: 0px;
-  /* padding: 0px; */
-  padding-left: 0px;
-}
-.large-images{
-  width: 100%;
-  height: 200px;
-  border-radius: 10px;
-  margin: 5px;
-  transition: transform 0.3s;
-}
-
-.medium-images {
-  width: 150px;
-  height: 100px;
-  border-radius: 10px;
-  margin: 5px;
-  transition: transform 0.3s;
-}
-
-.small-images{
-  width:150px;
-  height: 180px;
-  border-radius: 10px;
-  transition: transform 0.3s;
 }
 .verticalLine{
-  display: none;
+  border: none;
+  border-left: 1px solid hsla(200, 10%, 50%,100);
+  width: 1px;      
+  margin: 0px; 
+  padding: 0px;
+
 }
-.roomPriceTable tbody  td{
-  padding:10px;
-  margin: 0px;
-    
-}
-.roomPricesCard{
- 
-  padding: 20px;
-  margin: 0px;
-  margin-top: 10px;
- 
-}
-/* .roomTaxes{
+.roomTaxes{
   font-size:13px;
   margin-top:0px;
   color:#6d6e6e;
   font-weight:500;
+}
+
+@media (max-width: 767px){
+  
+
+.hotelImg{
+ width:100%;
+ height:180px;
+}
+.star1 li{
+padding-left:0px;
+padding-top: 0px;
+
+}
+.detailsCard{
+background-color: #ffff;
+padding:10px;
+border-radius: 10px;
+margin-top: 30px;
+}
+.hotelName{
+margin: 0px;
+}
+.hotelRating1{
+color: gold;
+width:12px;
+margin: 0px;
+/* padding: 0px; */
+padding-left: 0px;
+}
+.large-images{
+width: 100%;
+height: 200px;
+border-radius: 10px;
+margin: 5px;
+transition: transform 0.3s;
+}
+
+.medium-images {
+width: 150px;
+height: 100px;
+border-radius: 10px;
+margin: 5px;
+transition: transform 0.3s;
+}
+
+.small-images{
+width:150px;
+height: 180px;
+border-radius: 10px;
+transition: transform 0.3s;
+}
+.verticalLine{
+display: none;
+}
+.roomPriceTable tbody  td{
+padding:10px;
+margin: 0px;
+  
+}
+.roomPricesCard{
+
+padding: 20px;
+margin: 0px;
+margin-top: 10px;
+
+}
+/* .roomTaxes{
+font-size:13px;
+margin-top:0px;
+color:#6d6e6e;
+font-weight:500;
 } */
+.toastContainer{
+width: 70%;
+margin: 20px auto;
+}
 }
